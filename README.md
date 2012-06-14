@@ -52,3 +52,17 @@ Para ver todos los mensajes de error que provee la clase se adjunta archivo de t
 Para poder correr los tests, instalar y usar phpunit de la siguiente forma:
 
 phpunit --verbose  --colors ValidarIdentificacionTest.php 
+
+
+Como ayudar
+------------
+
+Me gustaría contar con la ayuda de la Comunidad. Si desean pueden:
+
+- Ver el código e indicar cualquier corrección.
+- Ver y probar los tests con phpunit e indicar si pueden agregarse mas tests
+- Usar la clase de php como base y crear Una clase en otro lenguaje.
+- Crear tests para clases en otro lenguaje.
+- Mejorar la documentacion.
+
+Si desean pueden hacer un pull request y yo acepto sus cambios a medida que los hagan. 
