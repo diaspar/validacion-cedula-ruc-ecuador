@@ -1,5 +1,6 @@
-validacion-cedula-ruc-ecuador
+ValidadorIdentificacion
 =============================
+
 
 Introducción
 -------------
@@ -14,7 +15,7 @@ El siguiente link permitira conocer un poco más de la matematica asociada:
 
 http://www.icaiza.com/blog/programacion/como-validar-el-digito-verificador-de-la-cedula-ecuatoriana
 
-Adjuntamos también un documento teórico (instructivo.pdf - página 36 a la 40)
+Adjuntamos también un documento teórico (This is an [instructivo.pdf](https://github.com/diaspar/validacion-cedula-ruc-ecuador/blob/master/instructivo.pdf) - página 36 a la 40)
 
 
 Uso
@@ -23,7 +24,7 @@ Uso
 - Incluir la clase en el proyecto PHP deseado.
 - Instanciar la clase y llamar al metodo para validar CI o RUC de persona natural
 
-`
+```
 // Crear nuevo objecto
 $validador = new ValidarIdentificacion();
 
@@ -40,7 +41,8 @@ if ($validador->validarRucPersonaNatural('0926687856001')) {
 } else {
     echo 'RUC incorrecto: '.$validador->getMessage();
 }
-`
+```
+
 
 Tests
 -------
