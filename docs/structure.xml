@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project version="2.0.0a5" title="">
-  <file path="validadores/php/ValidarIdentificacion.php" hash="43c517946057e8b128565e7f93fd9173" package="Default">
+  <file path="validadores/php/ValidarIdentificacion.php" hash="8e60cb605247a57552f3bc3d12ea96aa" package="Default">
     <class final="false" abstract="false" namespace="" line="47" package="Default">
       <name>ValidarIdentificacion</name>
       <full_name>\ValidarIdentificacion</full_name>
@@ -16,7 +16,7 @@ validarRucSociedadPrivada()</p>]]></long-description>
       </docblock>
       <property final="false" static="false" visibility="protected" line="58" namespace="" package="Default">
         <name>$error</name>
-        <default><![CDATA['0']]></default>
+        <default><![CDATA['']]></default>
       </property>
       <method final="false" abstract="false" static="false" visibility="public" namespace="" line="67" package="Default">
         <name>validarCedula</name>
@@ -75,62 +75,81 @@ validarRucSociedadPrivada()</p>]]></long-description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="" line="161" package="Default">
-        <name>validarInicial</name>
-        <full_name>validarInicial</full_name>
-        <docblock line="161">
-          <description><![CDATA[Validaciones iniciales para CI y RUC]]></description>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="157" package="Default">
+        <name>validarRucSociedadPublica</name>
+        <full_name>validarRucSociedadPublica</full_name>
+        <docblock line="157">
+          <description><![CDATA[Validar RUC sociedad publica]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="161" name="param" description="CI o RUC" type="string" variable="$numero">
+          <tag line="157" name="param" description="Número de RUC sociedad publica" type="string" variable="$numero">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="161" name="param" description="Cantidad de caracteres requeridos" type="integer" variable="$caracteres">
-            <type by_reference="false">integer</type>
-          </tag>
-          <tag line="161" name="return" description="" type="Boolean">
+          <tag line="157" name="return" description="" type="Boolean">
             <type by_reference="false">Boolean</type>
           </tag>
-          <tag line="161" name="throws" description="Cuando valor esta vacio, cuando no es dígito y cuando no tiene cantidad requerida de caracteres" type="\exception">
+        </docblock>
+        <argument line="157">
+          <name>$numero</name>
+          <default><![CDATA['']]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="" line="191" package="Default">
+        <name>validarInicial</name>
+        <full_name>validarInicial</full_name>
+        <docblock line="191">
+          <description><![CDATA[Validaciones iniciales para CI y RUC]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="191" name="param" description="CI o RUC" type="string" variable="$numero">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="191" name="param" description="Cantidad de caracteres requeridos" type="integer" variable="$caracteres">
+            <type by_reference="false">integer</type>
+          </tag>
+          <tag line="191" name="return" description="" type="Boolean">
+            <type by_reference="false">Boolean</type>
+          </tag>
+          <tag line="191" name="throws" description="Cuando valor esta vacio, cuando no es dígito y cuando no tiene cantidad requerida de caracteres" type="\exception">
             <type by_reference="false">\exception</type>
           </tag>
         </docblock>
-        <argument line="161">
+        <argument line="191">
           <name>$numero</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="161">
+        <argument line="191">
           <name>$caracteres</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="" line="187" package="Default">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="" line="217" package="Default">
         <name>validarCodigoProvincia</name>
         <full_name>validarCodigoProvincia</full_name>
-        <docblock line="187">
+        <docblock line="217">
           <description><![CDATA[Validación de código de provincia (dos primeros dígitos de CI/RUC)]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="187" name="param" description="Dos primeros dígitos de CI/RUC" type="string" variable="$numero">
+          <tag line="217" name="param" description="Dos primeros dígitos de CI/RUC" type="string" variable="$numero">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="187" name="return" description="" type="boolean">
+          <tag line="217" name="return" description="" type="boolean">
             <type by_reference="false">boolean</type>
           </tag>
-          <tag line="187" name="throws" description="Cuando el código de provincia no esta entre 00 y 24" type="\exception">
+          <tag line="217" name="throws" description="Cuando el código de provincia no esta entre 00 y 24" type="\exception">
             <type by_reference="false">\exception</type>
           </tag>
         </docblock>
-        <argument line="187">
+        <argument line="217">
           <name>$numero</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="" line="217" package="Default">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="" line="250" package="Default">
         <name>validarTercerDigito</name>
         <full_name>validarTercerDigito</full_name>
-        <docblock line="217">
+        <docblock line="250">
           <description><![CDATA[Validación de tercer dígito]]></description>
           <long-description><![CDATA[<p>Permite validad el tercer dígito del documento. Dependiendo
 del campo tipo (tipo de identificación) se realizan las validaciones.
@@ -140,57 +159,60 @@ Los posibles valores del campo tipo son: cedula, ruc_natural, ruc_privada</p>
 estar entre 0 y 5 (0,1,2,3,4,5)</p>
 
 <p>Para RUC de sociedades privadas el terder dígito debe ser
-igual a 9.</p>]]></long-description>
-          <tag line="217" name="param" description="tercer dígito de CI/RUC" type="string" variable="$numero">
+igual a 9.</p>
+
+<p>Para RUC de sociedades públicas el terder dígito debe ser
+igual a 6.</p>]]></long-description>
+          <tag line="250" name="param" description="tercer dígito de CI/RUC" type="string" variable="$numero">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="217" name="param" description="tipo de identificador" type="string" variable="$tipo">
+          <tag line="250" name="param" description="tipo de identificador" type="string" variable="$tipo">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="217" name="return" description="" type="boolean">
+          <tag line="250" name="return" description="" type="boolean">
             <type by_reference="false">boolean</type>
           </tag>
-          <tag line="217" name="throws" description="Cuando el tercer digito no es válido. El mensaje de error depende del tipo de Idenficiación." type="\exception">
+          <tag line="250" name="throws" description="Cuando el tercer digito no es válido. El mensaje de error depende del tipo de Idenficiación." type="\exception">
             <type by_reference="false">\exception</type>
           </tag>
         </docblock>
-        <argument line="217">
+        <argument line="250">
           <name>$numero</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="217">
+        <argument line="250">
           <name>$tipo</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="" line="247" package="Default">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="" line="287" package="Default">
         <name>validarCodigoEstablecimiento</name>
         <full_name>validarCodigoEstablecimiento</full_name>
-        <docblock line="247">
+        <docblock line="287">
           <description><![CDATA[Validación de código de establecimiento]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="247" name="param" description="tercer dígito de CI/RUC" type="string" variable="$numero">
+          <tag line="287" name="param" description="tercer dígito de CI/RUC" type="string" variable="$numero">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="247" name="return" description="" type="boolean">
+          <tag line="287" name="return" description="" type="boolean">
             <type by_reference="false">boolean</type>
           </tag>
-          <tag line="247" name="throws" description="Cuando el establecimiento es menor a 1" type="\exception">
+          <tag line="287" name="throws" description="Cuando el establecimiento es menor a 1" type="\exception">
             <type by_reference="false">\exception</type>
           </tag>
         </docblock>
-        <argument line="247">
+        <argument line="287">
           <name>$numero</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="" line="294" package="Default">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="" line="334" package="Default">
         <name>algoritmoModulo10</name>
         <full_name>algoritmoModulo10</full_name>
-        <docblock line="294">
+        <docblock line="334">
           <description><![CDATA[Algoritmo Modulo10 para validar si CI y RUC de persona natural son válidos.]]></description>
           <long-description><![CDATA[<p>Los coeficientes usados para verificar el décimo dígito de la cédula,
 mediante el algoritmo “Módulo 10” son:  2. 1. 2. 1. 2. 1. 2. 1. 2</p>
@@ -218,40 +240,43 @@ se suma entre ambos dígitos de dicho resultado. Ex. 12->1+2->3</p>
 El valor obtenido debe concordar con el digitoVerificador</p>
 
 <p>Nota: Cuando el residuo es cero(0) el dígito verificador debe ser 0.</p>]]></long-description>
-          <tag line="294" name="param" description="Nueve primeros dígitos de CI/RUC" type="string" variable="$digitosIniciales">
+          <tag line="334" name="param" description="Nueve primeros dígitos de CI/RUC" type="string" variable="$digitosIniciales">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="294" name="param" description="Décimo dígito de CI/RUC" type="string" variable="$digitoVerificador">
+          <tag line="334" name="param" description="Décimo dígito de CI/RUC" type="string" variable="$digitoVerificador">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="294" name="return" description="" type="boolean">
+          <tag line="334" name="return" description="" type="boolean">
             <type by_reference="false">boolean</type>
           </tag>
-          <tag line="294" name="throws" description="Cuando los digitosIniciales no concuerdan contra el código verificador." type="\exception">
+          <tag line="334" name="throws" description="Cuando los digitosIniciales no concuerdan contra el código verificador." type="\exception">
             <type by_reference="false">\exception</type>
           </tag>
         </docblock>
-        <argument line="294">
+        <argument line="334">
           <name>$digitosIniciales</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="294">
+        <argument line="334">
           <name>$digitoVerificador</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="" line="365" package="Default">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="" line="421" package="Default">
         <name>algoritmoModulo11</name>
         <full_name>algoritmoModulo11</full_name>
-        <docblock line="365">
+        <docblock line="421">
           <description><![CDATA[Algoritmo Modulo11 para validar RUC de sociedades privadas y públicas]]></description>
-          <long-description><![CDATA[<p>Los coeficientes usados para verificar el décimo dígito de la cédula,
-mediante el algoritmo “Módulo 11” son:  4. 3. 2. 7. 6. 5. 4. 3. 2.</p>
+          <long-description><![CDATA[<p>El código verificador es el decimo digito para RUC de empresas privadas
+y el noveno dígito para RUC de empresas públicas</p>
 
 <p>Paso 1: Multiplicar cada dígito de los digitosIniciales por su respectivo
 coeficiente.</p>
+
+<p>Para RUC privadas el coeficiente esta definido y se multiplica con las siguientes
+posiciones del RUC:</p>
 
 <p>Ejemplo
  digitosIniciales posicion 1  x 4
@@ -264,61 +289,81 @@ coeficiente.</p>
  digitosIniciales posicion 8  x 3
  digitosIniciales posicion 9  x 2</p>
 
+<p>Para RUC privadas el coeficiente esta definido y se multiplica con las siguientes
+posiciones del RUC:</p>
+
+<p>digitosIniciales posicion 1  x 3
+ digitosIniciales posicion 2  x 2
+ digitosIniciales posicion 3  x 7
+ digitosIniciales posicion 4  x 6
+ digitosIniciales posicion 5  x 5
+ digitosIniciales posicion 6  x 4
+ digitosIniciales posicion 7  x 3
+ digitosIniciales posicion 8  x 2</p>
+
 <p>Paso 2: Se suman los resultados y se obtiene total</p>
 
 <p>Paso 3: Divido total para 11, se guarda residuo. Se resta 11 menos el residuo.
 El valor obtenido debe concordar con el digitoVerificador</p>
 
 <p>Nota: Cuando el residuo es cero(0) el dígito verificador debe ser 0.</p>]]></long-description>
-          <tag line="365" name="param" description="Nueve primeros dígitos de RUC" type="string" variable="$digitosIniciales">
+          <tag line="421" name="param" description="Nueve primeros dígitos de RUC" type="string" variable="$digitosIniciales">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="365" name="param" description="Décimo dígito de RUC" type="string" variable="$digitoVerificador">
+          <tag line="421" name="param" description="Décimo dígito de RUC" type="string" variable="$digitoVerificador">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="365" name="return" description="" type="boolean">
+          <tag line="421" name="param" description="Tipo de identificador" type="string" variable="$tipo">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="421" name="return" description="" type="boolean">
             <type by_reference="false">boolean</type>
           </tag>
-          <tag line="365" name="throws" description="Cuando los digitosIniciales no concuerdan contra el código verificador." type="\exception">
+          <tag line="421" name="throws" description="Cuando los digitosIniciales no concuerdan contra el código verificador." type="\exception">
             <type by_reference="false">\exception</type>
           </tag>
         </docblock>
-        <argument line="365">
+        <argument line="421">
           <name>$digitosIniciales</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="365">
+        <argument line="421">
           <name>$digitoVerificador</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
+        <argument line="421">
+          <name>$tipo</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="398" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="464" package="Default">
         <name>getError</name>
         <full_name>getError</full_name>
-        <docblock line="398">
+        <docblock line="464">
           <description><![CDATA[Get error]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="398" name="return" description="Mensaje de error" type="string">
+          <tag line="464" name="return" description="Mensaje de error" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="409" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="475" package="Default">
         <name>setError</name>
         <full_name>setError</full_name>
-        <docblock line="409">
+        <docblock line="475">
           <description><![CDATA[Set error]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="409" name="param" description="" type="string" variable="$newError">
+          <tag line="475" name="param" description="" type="string" variable="$newError">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="409" name="return" description="$this" type="object">
+          <tag line="475" name="return" description="$this" type="object">
             <type by_reference="false">object</type>
           </tag>
         </docblock>
-        <argument line="409">
+        <argument line="475">
           <name>$newError</name>
           <default><![CDATA[]]></default>
           <type/>
@@ -329,7 +374,7 @@ El valor obtenido debe concordar con el digitoVerificador</p>
       <error line="58" code="50018">No DocBlock was found for property $error</error>
     </parse_markers>
   </file>
-  <file path="ValidarIdentificacionTest.php" hash="87b1c99707bf7884ce304d2e433857fa" package="Default">
+  <file path="ValidarIdentificacionTest.php" hash="8b76812e9fb26996449b5b599fd8313f" package="Default">
     <include line="40" type="Require" package="Default">
       <name>validadores/php/validaridentificacion.php</name>
       <docblock line="40">
@@ -386,6 +431,14 @@ validarRucSociedadPrivada()</p>]]></long-description>
         <full_name>testRucSociedadPrivada</full_name>
         <docblock line="201">
           <description><![CDATA[Tests sobre método público validarRucSociedadPrivada()]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="260" package="Default">
+        <name>testRucSociedadPublica</name>
+        <full_name>testRucSociedadPublica</full_name>
+        <docblock line="260">
+          <description><![CDATA[Tests sobre método público validarRucSociedadPublica()]]></description>
           <long-description><![CDATA[]]></long-description>
         </docblock>
       </method>

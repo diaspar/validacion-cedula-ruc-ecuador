@@ -57,6 +57,7 @@
 <li class="method public "><a href="#validarCedula" title="validarCedula :: Validar cédula"><span class="description">Validar cédula</span><pre>validarCedula()</pre></a></li>
 <li class="method public "><a href="#validarRucPersonaNatural" title="validarRucPersonaNatural :: Validar RUC persona natural"><span class="description">Validar RUC persona natural</span><pre>validarRucPersonaNatural()</pre></a></li>
 <li class="method public "><a href="#validarRucSociedadPrivada" title="validarRucSociedadPrivada :: Validar RUC sociedad privada"><span class="description">Validar RUC sociedad privada</span><pre>validarRucSociedadPrivada()</pre></a></li>
+<li class="method public "><a href="#validarRucSociedadPublica" title="validarRucSociedadPublica :: Validar RUC sociedad publica"><span class="description">Validar RUC sociedad publica</span><pre>validarRucSociedadPublica()</pre></a></li>
 <li class="nav-header protected">» Protected</li>
 <li class="method protected "><a href="#algoritmoModulo10" title="algoritmoModulo10 :: Algoritmo Modulo10 para validar si CI y RUC de persona natural son válidos."><span class="description">Algoritmo Modulo10 para validar si CI y RUC de persona natural son válidos.</span><pre>algoritmoModulo10()</pre></a></li>
 <li class="method protected "><a href="#algoritmoModulo11" title="algoritmoModulo11 :: Algoritmo Modulo11 para validar RUC de sociedades privadas y públicas"><span class="description">Algoritmo Modulo11 para validar RUC de sociedades privadas y públicas</span><pre>algoritmoModulo11()</pre></a></li>
@@ -161,6 +162,20 @@ validarRucSociedadPrivada()</p></p>
 <div class="subelement response"><code>Boolean</code></div>
 </div></div>
 </div>
+<a name="validarRucSociedadPublica" id="validarRucSociedadPublica"></a><div class="element clickable method public validarRucSociedadPublica" data-toggle="collapse" data-target=".validarRucSociedadPublica .collapse">
+<h2>Validar RUC sociedad publica</h2>
+<pre>validarRucSociedadPublica(string $numero) : Boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$numero</h4>
+<code>string</code><p>Número de RUC sociedad publica</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>Boolean</code></div>
+</div></div>
+</div>
 <a name="algoritmoModulo10" id="algoritmoModulo10"></a><div class="element clickable method protected algoritmoModulo10" data-toggle="collapse" data-target=".algoritmoModulo10 .collapse">
 <h2>Algoritmo Modulo10 para validar si CI y RUC de persona natural son válidos.</h2>
 <pre>algoritmoModulo10(string $digitosIniciales, string $digitoVerificador) : boolean</pre>
@@ -212,14 +227,17 @@ El valor obtenido debe concordar con el digitoVerificador</p>
 </div>
 <a name="algoritmoModulo11" id="algoritmoModulo11"></a><div class="element clickable method protected algoritmoModulo11" data-toggle="collapse" data-target=".algoritmoModulo11 .collapse">
 <h2>Algoritmo Modulo11 para validar RUC de sociedades privadas y públicas</h2>
-<pre>algoritmoModulo11(string $digitosIniciales, string $digitoVerificador) : boolean</pre>
+<pre>algoritmoModulo11(string $digitosIniciales, string $digitoVerificador, string $tipo) : boolean</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
-<p class="long_description"><p>Los coeficientes usados para verificar el décimo dígito de la cédula,
-mediante el algoritmo “Módulo 11” son:  4. 3. 2. 7. 6. 5. 4. 3. 2.</p>
+<p class="long_description"><p>El código verificador es el decimo digito para RUC de empresas privadas
+y el noveno dígito para RUC de empresas públicas</p>
 
 <p>Paso 1: Multiplicar cada dígito de los digitosIniciales por su respectivo
 coeficiente.</p>
+
+<p>Para RUC privadas el coeficiente esta definido y se multiplica con las siguientes
+posiciones del RUC:</p>
 
 <p>Ejemplo
  digitosIniciales posicion 1  x 4
@@ -231,6 +249,18 @@ coeficiente.</p>
  digitosIniciales posicion 7  x 4
  digitosIniciales posicion 8  x 3
  digitosIniciales posicion 9  x 2</p>
+
+<p>Para RUC privadas el coeficiente esta definido y se multiplica con las siguientes
+posiciones del RUC:</p>
+
+<p>digitosIniciales posicion 1  x 3
+ digitosIniciales posicion 2  x 2
+ digitosIniciales posicion 3  x 7
+ digitosIniciales posicion 4  x 6
+ digitosIniciales posicion 5  x 5
+ digitosIniciales posicion 6  x 4
+ digitosIniciales posicion 7  x 3
+ digitosIniciales posicion 8  x 2</p>
 
 <p>Paso 2: Se suman los resultados y se obtiene total</p>
 
@@ -247,6 +277,9 @@ El valor obtenido debe concordar con el digitoVerificador</p>
 <h4>$digitoVerificador</h4>
 <code>string</code><p>Décimo dígito de RUC</p>
 </div>
+<div class="subelement argument">
+<h4>$tipo</h4>
+<code>string</code><p>Tipo de identificador</p></div>
 <h3>Exceptions</h3>
 <table class="table table-bordered"><tr>
 <th><code>\exception</code></th>
@@ -331,7 +364,10 @@ Los posibles valores del campo tipo son: cedula, ruc_natural, ruc_privada</p>
 estar entre 0 y 5 (0,1,2,3,4,5)</p>
 
 <p>Para RUC de sociedades privadas el terder dígito debe ser
-igual a 9.</p></p>
+igual a 9.</p>
+
+<p>Para RUC de sociedades públicas el terder dígito debe ser
+igual a 6.</p></p>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$numero</h4>
@@ -364,7 +400,7 @@ igual a 9.</p></p>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a5</a> and<br>
-            generated on 2012-06-20T23:15:27-05:00.<br></footer></div>
+            generated on 2012-06-21T18:06:00-05:00.<br></footer></div>
 </div>
 </body>
 </html>

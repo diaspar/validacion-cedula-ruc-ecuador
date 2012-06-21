@@ -138,7 +138,37 @@ class ValidarIdentificacion
             $this->validarCodigoProvincia(substr($numero, 0, 2));
             $this->validarTercerDigito($numero[2], 'ruc_privada');
             $this->validarCodigoEstablecimiento(substr($numero, 10, 3));
-            $this->algoritmoModulo11(substr($numero, 0, 9), $numero[9]);
+            $this->algoritmoModulo11(substr($numero, 0, 9), $numero[9], 'ruc_privada');
+        } catch (Exception $e) {
+            $this->setError($e->getMessage());
+            return false; 
+        }
+
+        return true;
+    }
+
+    /**
+     * Validar RUC sociedad publica
+     * 
+     * @param  string  $numero  Número de RUC sociedad publica
+     * 
+     * @return Boolean
+     */
+    public function validarRucSociedadPublica($numero = '')
+    {
+        // fuerzo parametro de entrada a string
+        $numero = (string)$numero;
+
+        // borro por si acaso errores de llamadas anteriores.
+        $this->setError('');
+
+        // validaciones
+        try {
+            $this->validarInicial($numero, '13');
+            $this->validarCodigoProvincia(substr($numero, 0, 2));
+            $this->validarTercerDigito($numero[2], 'ruc_publica');
+            $this->validarCodigoEstablecimiento(substr($numero, 9, 4));
+            $this->algoritmoModulo11(substr($numero, 0, 8), $numero[8], 'ruc_publica');
         } catch (Exception $e) {
             $this->setError($e->getMessage());
             return false; 
@@ -205,6 +235,9 @@ class ValidarIdentificacion
      *
      * Para RUC de sociedades privadas el terder dígito debe ser 
      * igual a 9.
+     *
+     * Para RUC de sociedades públicas el terder dígito debe ser 
+     * igual a 6.
      * 
      * @param  string $numero  tercer dígito de CI/RUC
      * @param  string $tipo  tipo de identificador
@@ -228,10 +261,17 @@ class ValidarIdentificacion
                     throw new Exception('Tercer dígito debe ser igual a 9 para sociedades privadas');
                 }
                 break;
+
+            case 'ruc_publica':
+                if ($numero != 6) {
+                    throw new Exception('Tercer dígito debe ser igual a 6 para sociedades públicas');
+                }
+                break;
             default:
                 throw new Exception('Tipo de Identificacion no existe.');
                 break;
         }
+
         return true;
     }
 
@@ -330,11 +370,14 @@ class ValidarIdentificacion
     /**
      * Algoritmo Modulo11 para validar RUC de sociedades privadas y públicas
      *
-     * Los coeficientes usados para verificar el décimo dígito de la cédula, 
-     * mediante el algoritmo “Módulo 11” son:  4. 3. 2. 7. 6. 5. 4. 3. 2.
+     * El código verificador es el decimo digito para RUC de empresas privadas
+     * y el noveno dígito para RUC de empresas públicas
      *
      * Paso 1: Multiplicar cada dígito de los digitosIniciales por su respectivo 
      * coeficiente.
+     *
+     * Para RUC privadas el coeficiente esta definido y se multiplica con las siguientes 
+     * posiciones del RUC:
      * 
      *  Ejemplo
      *  digitosIniciales posicion 1  x 4
@@ -347,6 +390,18 @@ class ValidarIdentificacion
      *  digitosIniciales posicion 8  x 3
      *  digitosIniciales posicion 9  x 2
      *
+     * Para RUC privadas el coeficiente esta definido y se multiplica con las siguientes 
+     * posiciones del RUC:
+     *
+     *  digitosIniciales posicion 1  x 3
+     *  digitosIniciales posicion 2  x 2
+     *  digitosIniciales posicion 3  x 7
+     *  digitosIniciales posicion 4  x 6
+     *  digitosIniciales posicion 5  x 5
+     *  digitosIniciales posicion 6  x 4
+     *  digitosIniciales posicion 7  x 3
+     *  digitosIniciales posicion 8  x 2
+     *
      * Paso 2: Se suman los resultados y se obtiene total
      *
      * Paso 3: Divido total para 11, se guarda residuo. Se resta 11 menos el residuo.
@@ -356,15 +411,26 @@ class ValidarIdentificacion
      * 
      * @param  string $digitosIniciales   Nueve primeros dígitos de RUC
      * @param  string $digitoVerificador  Décimo dígito de RUC
-     * 
+     * @param  string $tipo Tipo de identificador
+     *
      * @return boolean
      *
      * @throws exception Cuando los digitosIniciales no concuerdan contra
      * el código verificador.
      */
-    protected function algoritmoModulo11($digitosIniciales, $digitoVerificador)
+    protected function algoritmoModulo11($digitosIniciales, $digitoVerificador, $tipo)
     {
-        $arrayCoeficientes = array(4, 3, 2, 7, 6, 5, 4, 3, 2);
+        switch ($tipo) {
+            case 'ruc_privada':
+                $arrayCoeficientes = array(4, 3, 2, 7, 6, 5, 4, 3, 2);
+                break;
+            case 'ruc_publica':
+                $arrayCoeficientes = array(3, 2, 7, 6, 5, 4, 3, 2);
+                break;
+            default:
+                throw new Exception('Tipo de Identificacion no existe.');
+                break;
+        }
 
         $digitoVerificador = (int)$digitoVerificador;
         $digitosIniciales = str_split($digitosIniciales);
