@@ -1,0 +1,370 @@
+<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>phpDocumentor » \ValidarIdentificacion</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu"></ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">2</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods</li>
+<li class="method public "><a href="#getError" title="getError :: Get error"><span class="description">Get error</span><pre>getError()</pre></a></li>
+<li class="method public "><a href="#setError" title="setError :: Set error"><span class="description">Set error</span><pre>setError()</pre></a></li>
+<li class="method public "><a href="#validarCedula" title="validarCedula :: Validar cédula"><span class="description">Validar cédula</span><pre>validarCedula()</pre></a></li>
+<li class="method public "><a href="#validarRucPersonaNatural" title="validarRucPersonaNatural :: Validar RUC persona natural"><span class="description">Validar RUC persona natural</span><pre>validarRucPersonaNatural()</pre></a></li>
+<li class="method public "><a href="#validarRucSociedadPrivada" title="validarRucSociedadPrivada :: Validar RUC sociedad privada"><span class="description">Validar RUC sociedad privada</span><pre>validarRucSociedadPrivada()</pre></a></li>
+<li class="nav-header protected">» Protected</li>
+<li class="method protected "><a href="#algoritmoModulo10" title="algoritmoModulo10 :: Algoritmo Modulo10 para validar si CI y RUC de persona natural son válidos."><span class="description">Algoritmo Modulo10 para validar si CI y RUC de persona natural son válidos.</span><pre>algoritmoModulo10()</pre></a></li>
+<li class="method protected "><a href="#algoritmoModulo11" title="algoritmoModulo11 :: Algoritmo Modulo11 para validar RUC de sociedades privadas y públicas"><span class="description">Algoritmo Modulo11 para validar RUC de sociedades privadas y públicas</span><pre>algoritmoModulo11()</pre></a></li>
+<li class="method protected "><a href="#validarCodigoEstablecimiento" title="validarCodigoEstablecimiento :: Validación de código de establecimiento"><span class="description">Validación de código de establecimiento</span><pre>validarCodigoEstablecimiento()</pre></a></li>
+<li class="method protected "><a href="#validarCodigoProvincia" title="validarCodigoProvincia :: Validación de código de provincia (dos primeros dígitos de CI/RUC)"><span class="description">Validación de código de provincia (dos primeros dígitos de CI/RUC)</span><pre>validarCodigoProvincia()</pre></a></li>
+<li class="method protected "><a href="#validarInicial" title="validarInicial :: Validaciones iniciales para CI y RUC"><span class="description">Validaciones iniciales para CI y RUC</span><pre>validarInicial()</pre></a></li>
+<li class="method protected "><a href="#validarTercerDigito" title="validarTercerDigito :: Validación de tercer dígito"><span class="description">Validación de tercer dígito</span><pre>validarTercerDigito()</pre></a></li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties</li>
+<li class="nav-header protected">» Protected</li>
+<li class="property protected "><a href="#%24error" title="$error :: "><span class="description">$error</span><pre>$error</pre></a></li>
+</ul>
+</div>
+<div class="span8">
+<a name="%5CValidarIdentificacion" id="\ValidarIdentificacion"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/.html"></a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/ValidarIdentificacion.html">ValidarIdentificacion</a>
+</li>
+</ul>
+<div href="../classes/ValidarIdentificacion.html" class="element class">
+<p class="short_description">ValidarIdentificacion contiene metodos para validar cédula, RUC de persona natural, RUC de sociedad privada y
+RUC de socieda pública en el Ecuador.</p>
+<div class="details">
+<p class="long_description"><p>Los métodos públicos para realizar validaciones son:</p>
+
+<p>validarCedula()
+validarRucPersonaNatural()
+validarRucSociedadPrivada()</p></p>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a name="getError" id="getError"></a><div class="element clickable method public getError" data-toggle="collapse" data-target=".getError .collapse">
+<h2>Get error</h2>
+<pre>getError() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>Mensaje de error</div>
+</div></div>
+</div>
+<a name="setError" id="setError"></a><div class="element clickable method public setError" data-toggle="collapse" data-target=".setError .collapse">
+<h2>Set error</h2>
+<pre>setError(string $newError) : object</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$newError</h4>
+<code>string</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>object</code>$this</div>
+</div></div>
+</div>
+<a name="validarCedula" id="validarCedula"></a><div class="element clickable method public validarCedula" data-toggle="collapse" data-target=".validarCedula .collapse">
+<h2>Validar cédula</h2>
+<pre>validarCedula(string $numero) : Boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$numero</h4>
+<code>string</code><p>Número de cédula</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>Boolean</code></div>
+</div></div>
+</div>
+<a name="validarRucPersonaNatural" id="validarRucPersonaNatural"></a><div class="element clickable method public validarRucPersonaNatural" data-toggle="collapse" data-target=".validarRucPersonaNatural .collapse">
+<h2>Validar RUC persona natural</h2>
+<pre>validarRucPersonaNatural(string $numero) : Boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$numero</h4>
+<code>string</code><p>Número de RUC persona natural</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>Boolean</code></div>
+</div></div>
+</div>
+<a name="validarRucSociedadPrivada" id="validarRucSociedadPrivada"></a><div class="element clickable method public validarRucSociedadPrivada" data-toggle="collapse" data-target=".validarRucSociedadPrivada .collapse">
+<h2>Validar RUC sociedad privada</h2>
+<pre>validarRucSociedadPrivada(string $numero) : Boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$numero</h4>
+<code>string</code><p>Número de RUC sociedad privada</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>Boolean</code></div>
+</div></div>
+</div>
+<a name="algoritmoModulo10" id="algoritmoModulo10"></a><div class="element clickable method protected algoritmoModulo10" data-toggle="collapse" data-target=".algoritmoModulo10 .collapse">
+<h2>Algoritmo Modulo10 para validar si CI y RUC de persona natural son válidos.</h2>
+<pre>algoritmoModulo10(string $digitosIniciales, string $digitoVerificador) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>Los coeficientes usados para verificar el décimo dígito de la cédula,
+mediante el algoritmo “Módulo 10” son:  2. 1. 2. 1. 2. 1. 2. 1. 2</p>
+
+<p>Paso 1: Multiplicar cada dígito de los digitosIniciales por su respectivo
+coeficiente.</p>
+
+<p>Ejemplo
+ digitosIniciales posicion 1  x 2
+ digitosIniciales posicion 2  x 1
+ digitosIniciales posicion 3  x 2
+ digitosIniciales posicion 4  x 1
+ digitosIniciales posicion 5  x 2
+ digitosIniciales posicion 6  x 1
+ digitosIniciales posicion 7  x 2
+ digitosIniciales posicion 8  x 1
+ digitosIniciales posicion 9  x 2</p>
+
+<p>Paso 2: Sí alguno de los resultados de cada multiplicación es mayor a o igual a 10,
+se suma entre ambos dígitos de dicho resultado. Ex. 12->1+2->3</p>
+
+<p>Paso 3: Se suman los resultados y se obtiene total</p>
+
+<p>Paso 4: Divido total para 10, se guarda residuo. Se resta 10 menos el residuo.
+El valor obtenido debe concordar con el digitoVerificador</p>
+
+<p>Nota: Cuando el residuo es cero(0) el dígito verificador debe ser 0.</p></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$digitosIniciales</h4>
+<code>string</code><p>Nueve primeros dígitos de CI/RUC</p>
+</div>
+<div class="subelement argument">
+<h4>$digitoVerificador</h4>
+<code>string</code><p>Décimo dígito de CI/RUC</p>
+</div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\exception</code></th>
+<td>Cuando los digitosIniciales no concuerdan contra el código verificador.</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>boolean</code></div>
+</div></div>
+</div>
+<a name="algoritmoModulo11" id="algoritmoModulo11"></a><div class="element clickable method protected algoritmoModulo11" data-toggle="collapse" data-target=".algoritmoModulo11 .collapse">
+<h2>Algoritmo Modulo11 para validar RUC de sociedades privadas y públicas</h2>
+<pre>algoritmoModulo11(string $digitosIniciales, string $digitoVerificador) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>Los coeficientes usados para verificar el décimo dígito de la cédula,
+mediante el algoritmo “Módulo 11” son:  4. 3. 2. 7. 6. 5. 4. 3. 2.</p>
+
+<p>Paso 1: Multiplicar cada dígito de los digitosIniciales por su respectivo
+coeficiente.</p>
+
+<p>Ejemplo
+ digitosIniciales posicion 1  x 4
+ digitosIniciales posicion 2  x 3
+ digitosIniciales posicion 3  x 2
+ digitosIniciales posicion 4  x 7
+ digitosIniciales posicion 5  x 6
+ digitosIniciales posicion 6  x 5
+ digitosIniciales posicion 7  x 4
+ digitosIniciales posicion 8  x 3
+ digitosIniciales posicion 9  x 2</p>
+
+<p>Paso 2: Se suman los resultados y se obtiene total</p>
+
+<p>Paso 3: Divido total para 11, se guarda residuo. Se resta 11 menos el residuo.
+El valor obtenido debe concordar con el digitoVerificador</p>
+
+<p>Nota: Cuando el residuo es cero(0) el dígito verificador debe ser 0.</p></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$digitosIniciales</h4>
+<code>string</code><p>Nueve primeros dígitos de RUC</p>
+</div>
+<div class="subelement argument">
+<h4>$digitoVerificador</h4>
+<code>string</code><p>Décimo dígito de RUC</p>
+</div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\exception</code></th>
+<td>Cuando los digitosIniciales no concuerdan contra el código verificador.</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>boolean</code></div>
+</div></div>
+</div>
+<a name="validarCodigoEstablecimiento" id="validarCodigoEstablecimiento"></a><div class="element clickable method protected validarCodigoEstablecimiento" data-toggle="collapse" data-target=".validarCodigoEstablecimiento .collapse">
+<h2>Validación de código de establecimiento</h2>
+<pre>validarCodigoEstablecimiento(string $numero) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$numero</h4>
+<code>string</code><p>tercer dígito de CI/RUC</p>
+</div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\exception</code></th>
+<td>Cuando el establecimiento es menor a 1</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>boolean</code></div>
+</div></div>
+</div>
+<a name="validarCodigoProvincia" id="validarCodigoProvincia"></a><div class="element clickable method protected validarCodigoProvincia" data-toggle="collapse" data-target=".validarCodigoProvincia .collapse">
+<h2>Validación de código de provincia (dos primeros dígitos de CI/RUC)</h2>
+<pre>validarCodigoProvincia(string $numero) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$numero</h4>
+<code>string</code><p>Dos primeros dígitos de CI/RUC</p>
+</div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\exception</code></th>
+<td>Cuando el código de provincia no esta entre 00 y 24</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>boolean</code></div>
+</div></div>
+</div>
+<a name="validarInicial" id="validarInicial"></a><div class="element clickable method protected validarInicial" data-toggle="collapse" data-target=".validarInicial .collapse">
+<h2>Validaciones iniciales para CI y RUC</h2>
+<pre>validarInicial(string $numero, integer $caracteres) : Boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$numero</h4>
+<code>string</code><p>CI o RUC</p></div>
+<div class="subelement argument">
+<h4>$caracteres</h4>
+<code>integer</code><p>Cantidad de caracteres requeridos</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\exception</code></th>
+<td>Cuando valor esta vacio, cuando no es dígito y cuando no tiene cantidad requerida de caracteres</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>Boolean</code></div>
+</div></div>
+</div>
+<a name="validarTercerDigito" id="validarTercerDigito"></a><div class="element clickable method protected validarTercerDigito" data-toggle="collapse" data-target=".validarTercerDigito .collapse">
+<h2>Validación de tercer dígito</h2>
+<pre>validarTercerDigito(string $numero, string $tipo) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>Permite validad el tercer dígito del documento. Dependiendo
+del campo tipo (tipo de identificación) se realizan las validaciones.
+Los posibles valores del campo tipo son: cedula, ruc_natural, ruc_privada</p>
+
+<p>Para Cédulas y RUC de personas naturales el terder dígito debe
+estar entre 0 y 5 (0,1,2,3,4,5)</p>
+
+<p>Para RUC de sociedades privadas el terder dígito debe ser
+igual a 9.</p></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$numero</h4>
+<code>string</code><p>tercer dígito de CI/RUC</p>
+</div>
+<div class="subelement argument">
+<h4>$tipo</h4>
+<code>string</code><p>tipo de identificador</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\exception</code></th>
+<td>Cuando el tercer digito no es válido. El mensaje de error depende del tipo de Idenficiación.</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>boolean</code></div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a name="%24error" id="$error"> </a><div class="element clickable property protected $error" data-toggle="collapse" data-target=".$error .collapse">
+<h2>$error</h2>
+<pre>$error </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a5</a> and<br>
+            generated on 2012-06-20T23:15:27-05:00.<br></footer></div>
+</div>
+</body>
+</html>

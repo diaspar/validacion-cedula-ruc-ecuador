@@ -1,15 +1,80 @@
 <?php
-require('ValidarIdentificacion.php');
 
+/**
+ * MIT License
+ * ===========
+ *
+ * Copyright (c) 2012 Ing. Mauricio Lopez <mlopez@dixian.info>
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining
+ * a copy of this software and associated documentation files (the
+ * "Software"), to deal in the Software without restriction, including
+ * without limitation the rights to use, copy, modify, merge, publish,
+ * distribute, sublicense, and/or sell copies of the Software, and to
+ * permit persons to whom the Software is furnished to do so, subject to
+ * the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included
+ * in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+ * IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+ * CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+ * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ *
+ * @package     ValidarIdentificacion
+ * @subpackage  
+ * @author      Ing. Mauricio Lopez <mlopez@dixian.info>
+ * @copyright   2012 Ing. Mauricio Lopez (diaspar)
+ * @license     http://www.opensource.org/licenses/mit-license.php  MIT License
+ * @link        http://www.dixian.info
+ * @version     @@0.8@@
+ */
+
+/**
+ * @include ValidarIdenfiticacion() file.
+ */
+require('validadores/php/validaridentificacion.php');
+
+
+/**
+ * Clase para realizar phpunit tests en la clase ValidarIdentificacion()
+ *
+ * Se realizan phpunit tests en format de assertions sobre los métodos
+ * públicos de la clases ValidarIdentificacion().
+ *
+ * Los métodos públicos son: 
+ *
+ * validarCedula()
+ * validarRucPersonaNatural()
+ * validarRucSociedadPrivada()
+ */
 class ValidarIdenfiticacionTest extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Validador
+     * 
+     * Guarda Instancia de clase ValidarIdentificacion() disponible para todos los métodos
+     *
+     * @var string
+     * @access protected
+     */
     protected $validador;
  
+    /**
+     * Inicio objecto ValidarIdentificacion() 
+     */
     protected function setUp()
     {
         $this->validador = new ValidarIdentificacion();
     }
 
+    /**
+     * Tests sobre método público validarCedula()
+     */
     public function testCedula()
     {
         // parametro vacio o sin parametro (numero ci) deben dar false
@@ -66,6 +131,9 @@ class ValidarIdenfiticacionTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($validarCedula, true);
     }
  
+    /**
+     * Tests sobre método público validarRucPersonaNatural()
+     */
     public function testRucPersonaNatural()
     {
         // parametro vacio o sin parametro (numero ci) deben dar false
@@ -127,7 +195,9 @@ class ValidarIdenfiticacionTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($validarRucPersonaNatural, true);
     }
 
-
+    /**
+     * Tests sobre método público validarRucSociedadPrivada()
+     */
     public function testRucSociedadPrivada()
     {
         // parametro vacio o sin parametro (numero ci) deben dar false

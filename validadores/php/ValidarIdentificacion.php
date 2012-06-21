@@ -31,26 +31,36 @@
  * @copyright   2012 Ing. Mauricio Lopez (diaspar)
  * @license     http://www.opensource.org/licenses/mit-license.php  MIT License
  * @link        http://www.dixian.info
- * @version     @@0.7@@
+ * @version     @@0.8@@
  */
 
 /**
  * ValidarIdentificacion contiene metodos para validar cédula, RUC de persona natural, RUC de sociedad privada y
  * RUC de socieda pública en el Ecuador.
+ *
+ * Los métodos públicos para realizar validaciones son: 
+ *
+ * validarCedula()
+ * validarRucPersonaNatural()
+ * validarRucSociedadPrivada()
  */
 class ValidarIdentificacion
 {
 
     /**
-     * @access protected
+     * Error
+     * 
+     * Contiene errores globales de la clase
+     * 
      * @var string
+     * @access protected
      */
     protected $error = '';
 
     /**
      * Validar cédula
      * 
-     * @param  string  $value  Número de cédula
+     * @param  string  $numero  Número de cédula
      * 
      * @return Boolean      
      */
@@ -79,7 +89,7 @@ class ValidarIdentificacion
     /**
      * Validar RUC persona natural
      * 
-     * @param  string  $value  Número de RUC persona natural
+     * @param  string  $numero  Número de RUC persona natural
      * 
      * @return Boolean
      */
@@ -110,7 +120,7 @@ class ValidarIdentificacion
     /**
      * Validar RUC sociedad privada
      * 
-     * @param  string  $value  Número de RUC sociedad privada
+     * @param  string  $numero  Número de RUC sociedad privada
      * 
      * @return Boolean
      */
@@ -393,7 +403,7 @@ class ValidarIdentificacion
     /**
      * Set error
      *
-     * @param  string $newEerror
+     * @param  string $newError
      * @return object $this
      */
     public function setError($newError)

@@ -8,14 +8,14 @@ Introducción
 Básicamente la Clase ValidadorIdentificacion permitirá tener una clase para validar Cédula y RUC del Ecuador. Se busca llegar a 
 los lenguajes más populares: php, js, java, .net (vb, c-sharp), ruby.
 
-Ya la clase inicial creada en php permite validar CI y RUC de persona natural. Proximamente se agregará funcionalidad
-para validar RUC de personas jurídicas y empresas del estado Ecuatoriano.
+Ya la clase inicial creada en php permite validar cédula, RUC de persona natural y RUC de sociedad privada. Proximamente se agregará funcionalidad
+para validar RUC de sociedades públicas
 
 El siguiente link permitira conocer un poco más de la matematica asociada:
 
 http://www.icaiza.com/blog/programacion/como-validar-el-digito-verificador-de-la-cedula-ecuatoriana
 
-Adjuntamos también un documento teórico (This is an [instructivo.pdf](https://github.com/diaspar/validacion-cedula-ruc-ecuador/blob/master/instructivo.pdf) - página 36 a la 40)
+Adjuntamos también un documento teórico ([instructivo.pdf](https://github.com/diaspar/validacion-cedula-ruc-ecuador/blob/master/instructivo.pdf) - página 36 a la 40)
 
 
 Uso
@@ -25,6 +25,8 @@ Uso
 - Instanciar la clase y llamar al metodo para validar CI o RUC de persona natural
 
 ```
+require('validadores/php/validaridentificacion.php');
+
 // Crear nuevo objecto
 $validador = new ValidarIdentificacion();
 
@@ -37,6 +39,13 @@ if ($validador->validarCedula('0926687856')) {
 
 // validar RUC persona natural
 if ($validador->validarRucPersonaNatural('0926687856001')) {
+    echo 'RUC válido';
+} else {
+    echo 'RUC incorrecto: '.$validador->getMessage();
+}
+
+// validar RUC sociedad privada
+if ($validador->validarRucPersonaNatural('0992397535001')) {
     echo 'RUC válido';
 } else {
     echo 'RUC incorrecto: '.$validador->getMessage();
@@ -65,4 +74,12 @@ Me gustaría contar con la ayuda de la Comunidad. Si desean pueden:
 - Crear tests para clases en otro lenguaje.
 - Mejorar la documentacion.
 
-Si desean pueden hacer un pull request y yo acepto sus cambios a medida que los hagan. 
+Si desean pueden hacer un pull request y yo acepto sus cambios a medida que los hagan.
+
+
+Contactarme
+------------
+
+Twitter: @diaspar3
+Github: https://github.com/diaspar/validacion-cedula-ruc-ecuador
+E-mail: mauriciolopeztam@gmail.com
