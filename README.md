@@ -22,7 +22,7 @@ Uso
 ----
 
 - Incluir la clase en el proyecto PHP deseado.
-- Instanciar la clase y llamar al metodo para validar CI o RUC de persona natural
+- Instanciar la clase y llamar al metodo para validar la identificación
 
 ```
 require('validadores/php/validaridentificacion.php');
