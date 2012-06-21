@@ -45,7 +45,7 @@ if ($validador->validarRucPersonaNatural('0926687856001')) {
 }
 
 // validar RUC sociedad privada
-if ($validador->validarRucPersonaNatural('0992397535001')) {
+if ($validador->validarRucSociedadPrivada('0992397535001')) {
     echo 'RUC válido';
 } else {
     echo 'RUC incorrecto: '.$validador->getMessage();
@@ -81,5 +81,7 @@ Contactarme
 ------------
 
 Twitter: @diaspar3
+
 Github: https://github.com/diaspar/validacion-cedula-ruc-ecuador
+
 E-mail: mauriciolopeztam@gmail.com
