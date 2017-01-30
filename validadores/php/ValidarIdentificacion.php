@@ -26,7 +26,7 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
  * @package     ValidarIdentificacion
- * @subpackage  
+ * @subpackage
  * @author      Ing. Mauricio Lopez <mlopez@dixian.info>
  * @copyright   2012 Ing. Mauricio Lopez (diaspar)
  * @license     http://www.opensource.org/licenses/mit-license.php  MIT License
@@ -38,7 +38,7 @@
  * ValidarIdentificacion contiene metodos para validar cédula, RUC de persona natural, RUC de sociedad privada y
  * RUC de socieda pública en el Ecuador.
  *
- * Los métodos públicos para realizar validaciones son: 
+ * Los métodos públicos para realizar validaciones son:
  *
  * validarCedula()
  * validarRucPersonaNatural()
@@ -49,9 +49,9 @@ class ValidarIdentificacion
 
     /**
      * Error
-     * 
+     *
      * Contiene errores globales de la clase
-     * 
+     *
      * @var string
      * @access protected
      */
@@ -59,13 +59,13 @@ class ValidarIdentificacion
 
     /**
      * Validar cédula
-     * 
+     *
      * @param  string  $numero  Número de cédula
-     * 
-     * @return Boolean      
+     *
+     * @return Boolean
      */
     public function validarCedula($numero = '')
-    {   
+    {
         // fuerzo parametro de entrada a string
         $numero = (string)$numero;
 
@@ -80,17 +80,17 @@ class ValidarIdentificacion
             $this->algoritmoModulo10(substr($numero, 0, 9), $numero[9]);
         } catch (Exception $e) {
             $this->setError($e->getMessage());
-            return false; 
+            return false;
         }
 
         return true;
     }
-   
+
     /**
      * Validar RUC persona natural
-     * 
+     *
      * @param  string  $numero  Número de RUC persona natural
-     * 
+     *
      * @return Boolean
      */
     public function validarRucPersonaNatural($numero = '')
@@ -110,7 +110,7 @@ class ValidarIdentificacion
             $this->algoritmoModulo10(substr($numero, 0, 9), $numero[9]);
         } catch (Exception $e) {
             $this->setError($e->getMessage());
-            return false; 
+            return false;
         }
 
         return true;
@@ -119,9 +119,9 @@ class ValidarIdentificacion
 
     /**
      * Validar RUC sociedad privada
-     * 
+     *
      * @param  string  $numero  Número de RUC sociedad privada
-     * 
+     *
      * @return Boolean
      */
     public function validarRucSociedadPrivada($numero = '')
@@ -141,7 +141,7 @@ class ValidarIdentificacion
             $this->algoritmoModulo11(substr($numero, 0, 9), $numero[9], 'ruc_privada');
         } catch (Exception $e) {
             $this->setError($e->getMessage());
-            return false; 
+            return false;
         }
 
         return true;
@@ -149,9 +149,9 @@ class ValidarIdentificacion
 
     /**
      * Validar RUC sociedad publica
-     * 
+     *
      * @param  string  $numero  Número de RUC sociedad publica
-     * 
+     *
      * @return Boolean
      */
     public function validarRucSociedadPublica($numero = '')
@@ -171,29 +171,29 @@ class ValidarIdentificacion
             $this->algoritmoModulo11(substr($numero, 0, 8), $numero[8], 'ruc_publica');
         } catch (Exception $e) {
             $this->setError($e->getMessage());
-            return false; 
+            return false;
         }
 
         return true;
     }
-   
+
     /**
      * Validaciones iniciales para CI y RUC
-     * 
+     *
      * @param  string  $numero      CI o RUC
      * @param  integer $caracteres  Cantidad de caracteres requeridos
-     * 
+     *
      * @return Boolean
-     * 
-     * @throws exception Cuando valor esta vacio, cuando no es dígito y 
+     *
+     * @throws exception Cuando valor esta vacio, cuando no es dígito y
      * cuando no tiene cantidad requerida de caracteres
      */
     protected function validarInicial($numero, $caracteres)
-    {   
+    {
         if (empty($numero)) {
             throw new Exception('Valor no puede estar vacio');
         }
-        
+
         if (!ctype_digit($numero)) {
             throw new Exception('Valor ingresado solo puede tener dígitos');
         }
@@ -207,9 +207,9 @@ class ValidarIdentificacion
 
     /**
      * Validación de código de provincia (dos primeros dígitos de CI/RUC)
-     * 
+     *
      * @param  string  $numero  Dos primeros dígitos de CI/RUC
-     * 
+     *
      * @return boolean
      *
      * @throws exception Cuando el código de provincia no esta entre 00 y 24
@@ -222,26 +222,26 @@ class ValidarIdentificacion
 
         return true;
     }
-    
+
     /**
      * Validación de tercer dígito
      *
      * Permite validad el tercer dígito del documento. Dependiendo
-     * del campo tipo (tipo de identificación) se realizan las validaciones. 
+     * del campo tipo (tipo de identificación) se realizan las validaciones.
      * Los posibles valores del campo tipo son: cedula, ruc_natural, ruc_privada
      *
      * Para Cédulas y RUC de personas naturales el terder dígito debe
      * estar entre 0 y 5 (0,1,2,3,4,5)
      *
-     * Para RUC de sociedades privadas el terder dígito debe ser 
+     * Para RUC de sociedades privadas el terder dígito debe ser
      * igual a 9.
      *
      * Para RUC de sociedades públicas el terder dígito debe ser 
      * igual a 6.
-     * 
+     *
      * @param  string $numero  tercer dígito de CI/RUC
      * @param  string $tipo  tipo de identificador
-     * 
+     *
      * @return boolean
      *
      * @throws exception Cuando el tercer digito no es válido. El mensaje
@@ -268,7 +268,7 @@ class ValidarIdentificacion
                 }
                 break;
             default:
-                throw new Exception('Tipo de Identificacion no existe.');
+                throw new Exception('Tipo de Identificación no existe.');
                 break;
         }
 
@@ -277,9 +277,9 @@ class ValidarIdentificacion
 
     /**
      * Validación de código de establecimiento
-     * 
+     *
      * @param  string $numero  tercer dígito de CI/RUC
-     * 
+     *
      * @return boolean
      *
      * @throws exception Cuando el establecimiento es menor a 1
@@ -296,12 +296,12 @@ class ValidarIdentificacion
     /**
      * Algoritmo Modulo10 para validar si CI y RUC de persona natural son válidos.
      *
-     * Los coeficientes usados para verificar el décimo dígito de la cédula, 
+     * Los coeficientes usados para verificar el décimo dígito de la cédula,
      * mediante el algoritmo “Módulo 10” son:  2. 1. 2. 1. 2. 1. 2. 1. 2
      *
-     * Paso 1: Multiplicar cada dígito de los digitosIniciales por su respectivo 
+     * Paso 1: Multiplicar cada dígito de los digitosIniciales por su respectivo
      * coeficiente.
-     * 
+     *
      *  Ejemplo
      *  digitosIniciales posicion 1  x 2
      *  digitosIniciales posicion 2  x 1
@@ -313,7 +313,7 @@ class ValidarIdentificacion
      *  digitosIniciales posicion 8  x 1
      *  digitosIniciales posicion 9  x 2
      *
-     * Paso 2: Sí alguno de los resultados de cada multiplicación es mayor a o igual a 10, 
+     * Paso 2: Sí alguno de los resultados de cada multiplicación es mayor a o igual a 10,
      * se suma entre ambos dígitos de dicho resultado. Ex. 12->1+2->3
      *
      * Paso 3: Se suman los resultados y se obtiene total
@@ -322,10 +322,10 @@ class ValidarIdentificacion
      * El valor obtenido debe concordar con el digitoVerificador
      *
      * Nota: Cuando el residuo es cero(0) el dígito verificador debe ser 0.
-     * 
+     *
      * @param  string $digitosIniciales   Nueve primeros dígitos de CI/RUC
      * @param  string $digitoVerificador  Décimo dígito de CI/RUC
-     * 
+     *
      * @return boolean
      *
      * @throws exception Cuando los digitosIniciales no concuerdan contra
@@ -355,7 +355,7 @@ class ValidarIdentificacion
         $residuo =  $total % 10;
 
         if ($residuo == 0) {
-            $resultado = 0;        
+            $resultado = 0;
         } else {
             $resultado = 10 - $residuo;
         }
@@ -373,12 +373,12 @@ class ValidarIdentificacion
      * El código verificador es el decimo digito para RUC de empresas privadas
      * y el noveno dígito para RUC de empresas públicas
      *
-     * Paso 1: Multiplicar cada dígito de los digitosIniciales por su respectivo 
+     * Paso 1: Multiplicar cada dígito de los digitosIniciales por su respectivo
      * coeficiente.
      *
-     * Para RUC privadas el coeficiente esta definido y se multiplica con las siguientes 
+     * Para RUC privadas el coeficiente esta definido y se multiplica con las siguientes
      * posiciones del RUC:
-     * 
+     *
      *  Ejemplo
      *  digitosIniciales posicion 1  x 4
      *  digitosIniciales posicion 2  x 3
@@ -390,7 +390,7 @@ class ValidarIdentificacion
      *  digitosIniciales posicion 8  x 3
      *  digitosIniciales posicion 9  x 2
      *
-     * Para RUC privadas el coeficiente esta definido y se multiplica con las siguientes 
+     * Para RUC privadas el coeficiente esta definido y se multiplica con las siguientes
      * posiciones del RUC:
      *
      *  digitosIniciales posicion 1  x 3
@@ -408,7 +408,7 @@ class ValidarIdentificacion
      * El valor obtenido debe concordar con el digitoVerificador
      *
      * Nota: Cuando el residuo es cero(0) el dígito verificador debe ser 0.
-     * 
+     *
      * @param  string $digitosIniciales   Nueve primeros dígitos de RUC
      * @param  string $digitoVerificador  Décimo dígito de RUC
      * @param  string $tipo Tipo de identificador
@@ -428,7 +428,7 @@ class ValidarIdentificacion
                 $arrayCoeficientes = array(3, 2, 7, 6, 5, 4, 3, 2);
                 break;
             default:
-                throw new Exception('Tipo de Identificacion no existe.');
+                throw new Exception('Tipo de Identificación no existe.');
                 break;
         }
 
@@ -444,7 +444,7 @@ class ValidarIdentificacion
         $residuo =  $total % 11;
 
         if ($residuo == 0) {
-            $resultado = 0;        
+            $resultado = 0;
         } else {
             $resultado = 11 - $residuo;
         }
@@ -465,7 +465,7 @@ class ValidarIdentificacion
     {
         return $this->error;
     }
-    
+
     /**
      * Set error
      *
