@@ -202,13 +202,18 @@ class ValidarIdentificacion
             throw new Exception('Valor ingresado debe tener '.$caracteres.' caracteres');
         }
         //valido que los digitos ingresados no sean iguales ejemplo 2222222222
-         if (($numero[0] == $numero[1]) and ($numero[1] == $numero[2]) and ($numero[2] == $numero[3]) and ($numero[3] == $numero[4]) and 
+   	
+	/*  VERSION 1
+	 if (($numero[0] == $numero[1]) and ($numero[1] == $numero[2]) and ($numero[2] == $numero[3]) and ($numero[3] == $numero[4]) and 
 		($numero[4] == $numero[5]) and ($numero[5] == $numero[6]) and ($numero[6] == $numero[7]) and ($numero[7] == $numero[8]) and  
 		($numero[8] == $numero[9]))
 		{
             throw new Exception('Todos los digitos ingresados son iguales');
-        }
-        
+        }*/
+        // VERSION 2
+	    if (preg_match('/^(.)\1*$/', $numero)) {
+    		throw new Exception('Todos los digitos ingresados son iguales');
+	}
         return true;
     }
 
