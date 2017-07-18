@@ -216,7 +216,7 @@ class ValidarIdentificacion
      */
     protected function validarCodigoProvincia($numero)
     {
-        if ($numero < 0 OR $numero > 24) {
+        if ($numero > 24 || $numero < 0) {
             throw new Exception('Codigo de Provincia (dos primeros dígitos) no deben ser mayor a 24 ni menores a 0');
         }
 
@@ -289,7 +289,7 @@ class ValidarIdentificacion
         $vari=($numero<1)? false:true;
         if(!$vari)
             throw new Exception('Código de establecimiento no puede ser 0');
-        
+
         return $vari;
         /*if ($numero < 1) {
             throw new Exception('Código de establecimiento no puede ser 0');
