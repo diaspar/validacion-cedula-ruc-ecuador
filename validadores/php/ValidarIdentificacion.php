@@ -69,7 +69,7 @@ class ValidarIdentificacion
         // fuerzo parametro de entrada a string
         $numero = (string)$numero;
 
-        // borro por si acaso errores de llamadas anteriores.
+        // borro por si acaso los errores de llamadas anteriores.
         $this->setError('');
 
         // validaciones
@@ -217,7 +217,7 @@ class ValidarIdentificacion
     protected function validarCodigoProvincia($numero)
     {
         if ($numero < 0 OR $numero > 24) {
-            throw new Exception('Codigo de Provincia (dos primeros dígitos) no deben ser mayor a 24 ni menores a 0');
+            throw new Exception('Código de Provincia (dos primeros dígitos) no debe ser mayor a 24 ni menor a 0');
         }
 
         return true;
