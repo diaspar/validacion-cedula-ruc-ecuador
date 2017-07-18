@@ -87,7 +87,7 @@ class ValidarIdenfiticacionTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($this->validador->getError(), 'Valor no puede estar vacio');
 
         // parametro con 0 adelante pero como integer, debe dar false ya que php lo convierte a 0
-        $validarCedula = $this->validador->validarCedula(0926687856);
+        $validarCedula = $this->validador->validarCedula('0926687856');
         $this->assertEquals($validarCedula, false);
         $this->assertEquals($this->validador->getError(), 'Valor no puede estar vacio');
 
@@ -146,7 +146,7 @@ class ValidarIdenfiticacionTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($this->validador->getError(), 'Valor no puede estar vacio');
 
         // parametro con 0 adelante pero como integer, debe dar false ya que php lo convierte a 0
-        $validarRucPersonaNatural = $this->validador->validarRucPersonaNatural(0926687856001);
+        $validarRucPersonaNatural = $this->validador->validarRucPersonaNatural('0926687856001');
         $this->assertEquals($validarRucPersonaNatural, false);
         $this->assertEquals($this->validador->getError(), 'Valor no puede estar vacio');
 
@@ -157,7 +157,7 @@ class ValidarIdenfiticacionTest extends PHPUnit_Framework_TestCase
 
         $validarRucPersonaNatural = $this->validador->validarRucPersonaNatural('09.26687856001');
         $this->assertEquals($validarRucPersonaNatural, false);
-        $this->assertEquals($this->validador->getError(), 'Valor ingresado solo puede tener dígitos');
+        $this->assertEquals($this->validador->getError(), '/rootValor ingresado solo puede tener dígitos');
 
         // ruc de persona natural debe tener 13 caracteres exactos
         $validarRucPersonaNatural = $this->validador->validarRucPersonaNatural('0926687864777009');
@@ -210,7 +210,7 @@ class ValidarIdenfiticacionTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($this->validador->getError(), 'Valor no puede estar vacio');
 
         // parametro con 0 adelante pero como integer, debe dar false ya que php lo convierte a 0
-        $validarRucSociedadPrivada = $this->validador->validarRucSociedadPrivada(0992397535001);
+        $validarRucSociedadPrivada = $this->validador->validarRucSociedadPrivada('0992397535001');
         $this->assertEquals($validarRucSociedadPrivada, false);
         $this->assertEquals($this->validador->getError(), 'Valor no puede estar vacio');
 
@@ -269,7 +269,7 @@ class ValidarIdenfiticacionTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($this->validador->getError(), 'Valor no puede estar vacio');
 
         // parametro con 0 adelante pero como integer, debe dar false ya que php lo convierte a 0
-        $validarRucSociedadPublica = $this->validador->validarRucSociedadPublica(0960001550001);
+        $validarRucSociedadPublica = $this->validador->validarRucSociedadPublica('0960001550001');
         $this->assertEquals($validarRucSociedadPublica, false);
         $this->assertEquals($this->validador->getError(), 'Valor no puede estar vacio');
 

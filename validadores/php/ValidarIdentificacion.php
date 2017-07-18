@@ -191,14 +191,17 @@ class ValidarIdentificacion
     protected function validarInicial($numero, $caracteres)
     {
         if (empty($numero)) {
+            print("holaa Errror");
             throw new Exception('Valor no puede estar vacio');
         }
 
         if (!ctype_digit($numero)) {
+            print("holaa Errror");
             throw new Exception('Valor ingresado solo puede tener dígitos');
         }
 
         if (strlen($numero) != $caracteres) {
+            print("holaa Errror");
             throw new Exception('Valor ingresado debe tener '.$caracteres.' caracteres');
         }
 
@@ -216,7 +219,7 @@ class ValidarIdentificacion
      */
     protected function validarCodigoProvincia($numero)
     {
-        if ($numero < 0 OR $numero > 24) {
+        if ($numero > 24 || $numero < 0) {
             throw new Exception('Codigo de Provincia (dos primeros dígitos) no deben ser mayor a 24 ni menores a 0');
         }
 
@@ -286,9 +289,14 @@ class ValidarIdentificacion
      */
     protected function validarCodigoEstablecimiento($numero)
     {
-        if ($numero < 1) {
+        $vari=($numero<1)? false:true;
+        if(!$vari)
             throw new Exception('Código de establecimiento no puede ser 0');
-        }
+
+        return $vari;
+        /*if ($numero < 1) {
+            throw new Exception('Código de establecimiento no puede ser 0');
+        }*/
 
         return true;
     }
