@@ -191,14 +191,17 @@ class ValidarIdentificacion
     protected function validarInicial($numero, $caracteres)
     {
         if (empty($numero)) {
-            throw new Exception('Valor no puede estar vacio');
+            print("holaa Errror");
+            //throw new Exception('Valor no puede estar vacio');
         }
 
         if (!ctype_digit($numero)) {
+            print("holaa Errror");
             throw new Exception('Valor ingresado solo puede tener dígitos');
         }
 
         if (strlen($numero) != $caracteres) {
+            print("holaa Errror");
             throw new Exception('Valor ingresado debe tener '.$caracteres.' caracteres');
         }
 
