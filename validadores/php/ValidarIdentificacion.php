@@ -192,7 +192,7 @@ class ValidarIdentificacion
     {
         if (empty($numero)) {
             print("holaa Errror");
-            //throw new Exception('Valor no puede estar vacio');
+            throw new Exception('Valor no puede estar vacio');
         }
 
         if (!ctype_digit($numero)) {
