@@ -77,19 +77,19 @@ class ValidarIdenfiticacionTest extends PHPUnit_Framework_TestCase
      */
     public function testCedula()
     {
-        // parametro vacio o sin parametro (numero ci) deben dar false
+        // parametro vacío o sin parametro (numero ci) deben dar false
         $validarCedula = $this->validador->validarCedula('');
         $this->assertEquals($validarCedula, false);
-        $this->assertEquals($this->validador->getError(), 'Valor no puede estar vacio');
+        $this->assertEquals($this->validador->getError(), 'Valor no puede estar vacío');
         
         $validarCedula = $this->validador->validarCedula();
         $this->assertEquals($validarCedula, false);
-        $this->assertEquals($this->validador->getError(), 'Valor no puede estar vacio');
+        $this->assertEquals($this->validador->getError(), 'Valor no puede estar vacío');
 
         // parametro con 0 adelante pero como integer, debe dar false ya que php lo convierte a 0
         $validarCedula = $this->validador->validarCedula(0926687856);
         $this->assertEquals($validarCedula, false);
-        $this->assertEquals($this->validador->getError(), 'Valor no puede estar vacio');
+        $this->assertEquals($this->validador->getError(), 'Valor no puede estar vacío');
 
         // parametro debe tener solo digitos
         $validarCedula = $this->validador->validarCedula('-0926687856');
@@ -108,7 +108,7 @@ class ValidarIdenfiticacionTest extends PHPUnit_Framework_TestCase
         // revisar codigo de provincia, debe estar entre 0 y 24
         $validarCedula = $this->validador->validarCedula('9926687856');
         $this->assertEquals($validarCedula, false);
-        $this->assertEquals($this->validador->getError(), 'Codigo de Provincia (dos primeros dígitos) no deben ser mayor a 24 ni menores a 0');
+        $this->assertEquals($this->validador->getError(), 'Codigo de Provincia (dos primeros dígitos) no debe ser mayor a 24 ni menor a 0');
 
         // revisar tercer digito, debe ser mayor/igual a 0 y menor a 6
         $validarCedula = $this->validador->validarCedula('0996687856');
@@ -136,19 +136,19 @@ class ValidarIdenfiticacionTest extends PHPUnit_Framework_TestCase
      */
     public function testRucPersonaNatural()
     {
-        // parametro vacio o sin parametro (numero ci) deben dar false
+        // parametro vacío o sin parametro (numero ci) deben dar false
         $validarRucPersonaNatural = $this->validador->validarRucPersonaNatural('');
         $this->assertEquals($validarRucPersonaNatural, false);
-        $this->assertEquals($this->validador->getError(), 'Valor no puede estar vacio');
+        $this->assertEquals($this->validador->getError(), 'Valor no puede estar vacío');
         
         $validarRucPersonaNatural = $this->validador->validarRucPersonaNatural();
         $this->assertEquals($validarRucPersonaNatural, false);
-        $this->assertEquals($this->validador->getError(), 'Valor no puede estar vacio');
+        $this->assertEquals($this->validador->getError(), 'Valor no puede estar vacío');
 
         // parametro con 0 adelante pero como integer, debe dar false ya que php lo convierte a 0
         $validarRucPersonaNatural = $this->validador->validarRucPersonaNatural(0926687856001);
         $this->assertEquals($validarRucPersonaNatural, false);
-        $this->assertEquals($this->validador->getError(), 'Valor no puede estar vacio');
+        $this->assertEquals($this->validador->getError(), 'Valor no puede estar vacío');
 
         // parametro debe tener solo digitos
         $validarRucPersonaNatural = $this->validador->validarRucPersonaNatural('-0926687856001');
@@ -167,7 +167,7 @@ class ValidarIdenfiticacionTest extends PHPUnit_Framework_TestCase
         // revisar codigo de provincia, debe estar entre 0 y 24
         $validarRucPersonaNatural = $this->validador->validarRucPersonaNatural('9926687856001');
         $this->assertEquals($validarRucPersonaNatural, false);
-        $this->assertEquals($this->validador->getError(), 'Codigo de Provincia (dos primeros dígitos) no deben ser mayor a 24 ni menores a 0');
+        $this->assertEquals($this->validador->getError(), 'Código de Provincia (dos primeros dígitos) no debe ser mayor a 24 ni menor a 0');
 
         // revisar tercer digito, debe ser mayor/igual a 0 y menor a 6
         $validarRucPersonaNatural = $this->validador->validarRucPersonaNatural('0996687856001');
@@ -200,19 +200,19 @@ class ValidarIdenfiticacionTest extends PHPUnit_Framework_TestCase
      */
     public function testRucSociedadPrivada()
     {
-        // parametro vacio o sin parametro (numero ci) deben dar false
+        // parametro vacío o sin parametro (numero ci) deben dar false
         $validarRucSociedadPrivada = $this->validador->validarRucSociedadPrivada('');
         $this->assertEquals($validarRucSociedadPrivada, false);
-        $this->assertEquals($this->validador->getError(), 'Valor no puede estar vacio');
+        $this->assertEquals($this->validador->getError(), 'Valor no puede estar vacío');
         
         $validarRucSociedadPrivada = $this->validador->validarRucSociedadPrivada();
         $this->assertEquals($validarRucSociedadPrivada, false);
-        $this->assertEquals($this->validador->getError(), 'Valor no puede estar vacio');
+        $this->assertEquals($this->validador->getError(), 'Valor no puede estar vacío');
 
         // parametro con 0 adelante pero como integer, debe dar false ya que php lo convierte a 0
         $validarRucSociedadPrivada = $this->validador->validarRucSociedadPrivada(0992397535001);
         $this->assertEquals($validarRucSociedadPrivada, false);
-        $this->assertEquals($this->validador->getError(), 'Valor no puede estar vacio');
+        $this->assertEquals($this->validador->getError(), 'Valor no puede estar vacío');
 
         // parametro debe tener solo digitos
         $validarRucSociedadPrivada = $this->validador->validarRucSociedadPrivada('-0992397535001');
@@ -231,7 +231,7 @@ class ValidarIdenfiticacionTest extends PHPUnit_Framework_TestCase
         // revisar codigo de provincia, debe estar entre 0 y 24
         $validarRucSociedadPrivada = $this->validador->validarRucSociedadPrivada('9992397535001');
         $this->assertEquals($validarRucSociedadPrivada, false);
-        $this->assertEquals($this->validador->getError(), 'Codigo de Provincia (dos primeros dígitos) no deben ser mayor a 24 ni menores a 0');
+        $this->assertEquals($this->validador->getError(), 'Codigo de Provincia (dos primeros dígitos) no debe ser mayor a 24 ni menor a 0');
 
         // revisar tercer digito, debe ser igual a 9
         $validarRucSociedadPrivada = $this->validador->validarRucSociedadPrivada('0982397535001');
@@ -259,19 +259,19 @@ class ValidarIdenfiticacionTest extends PHPUnit_Framework_TestCase
      */
     public function testRucSociedadPublica()
     {
-        // parametro vacio o sin parametro (numero ci) deben dar false
+        // parametro vacío o sin parametro (numero ci) deben dar false
         $validarRucSociedadPublica = $this->validador->validarRucSociedadPublica('');
         $this->assertEquals($validarRucSociedadPublica, false);
-        $this->assertEquals($this->validador->getError(), 'Valor no puede estar vacio');
+        $this->assertEquals($this->validador->getError(), 'Valor no puede estar vacío');
         
         $validarRucSociedadPublica = $this->validador->validarRucSociedadPublica();
         $this->assertEquals($validarRucSociedadPublica, false);
-        $this->assertEquals($this->validador->getError(), 'Valor no puede estar vacio');
+        $this->assertEquals($this->validador->getError(), 'Valor no puede estar vacío');
 
         // parametro con 0 adelante pero como integer, debe dar false ya que php lo convierte a 0
         $validarRucSociedadPublica = $this->validador->validarRucSociedadPublica(0960001550001);
         $this->assertEquals($validarRucSociedadPublica, false);
-        $this->assertEquals($this->validador->getError(), 'Valor no puede estar vacio');
+        $this->assertEquals($this->validador->getError(), 'Valor no puede estar vacío');
 
         // parametro debe tener solo digitos
         $validarRucSociedadPublica = $this->validador->validarRucSociedadPublica('-1760001550001');
@@ -290,7 +290,7 @@ class ValidarIdenfiticacionTest extends PHPUnit_Framework_TestCase
         // revisar codigo de provincia, debe estar entre 0 y 24
         $validarRucSociedadPublica = $this->validador->validarRucSociedadPublica('2760001550001');
         $this->assertEquals($validarRucSociedadPublica, false);
-        $this->assertEquals($this->validador->getError(), 'Codigo de Provincia (dos primeros dígitos) no deben ser mayor a 24 ni menores a 0');
+        $this->assertEquals($this->validador->getError(), 'Código de Provincia (dos primeros dígitos) no debe ser mayor a 24 ni menor a 0');
 
         // revisar tercer digito, debe ser igual a 6
         $validarRucSociedadPublica = $this->validador->validarRucSociedadPublica('1790001550001');
