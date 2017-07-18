@@ -286,9 +286,14 @@ class ValidarIdentificacion
      */
     protected function validarCodigoEstablecimiento($numero)
     {
-        if ($numero < 1) {
+        $vari=($numero<1)? false:true;
+        if(!$vari)
             throw new Exception('Código de establecimiento no puede ser 0');
-        }
+        
+        return $vari;
+        /*if ($numero < 1) {
+            throw new Exception('Código de establecimiento no puede ser 0');
+        }*/
 
         return true;
     }
