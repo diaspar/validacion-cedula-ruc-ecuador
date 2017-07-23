@@ -185,13 +185,13 @@ class ValidarIdentificacion
      *
      * @return Boolean
      *
-     * @throws exception Cuando valor esta vacio, cuando no es dígito y
+     * @throws exception Cuando valor esta vacío, cuando no es dígito y
      * cuando no tiene cantidad requerida de caracteres
      */
     protected function validarInicial($numero, $caracteres)
     {
         if (empty($numero)) {
-            throw new Exception('Valor no puede estar vacio');
+            throw new Exception('Valor no puede estar vacío');
         }
 
         if (!ctype_digit($numero)) {
@@ -226,7 +226,7 @@ class ValidarIdentificacion
     /**
      * Validación de tercer dígito
      *
-     * Permite validad el tercer dígito del documento. Dependiendo
+     * Permite validar el tercer dígito del documento. Dependiendo
      * del campo tipo (tipo de identificación) se realizan las validaciones.
      * Los posibles valores del campo tipo son: cedula, ruc_natural, ruc_privada
      *
