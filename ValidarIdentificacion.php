@@ -185,7 +185,7 @@ class ValidarIdentificacion
      *
      * @return Boolean
      *
-     * @throws exception Cuando valor esta vacío, cuando no es dígito y
+     * @throws exception Cuando valor esta vacio, cuando no es dígito y
      * cuando no tiene cantidad requerida de caracteres
      */
     protected function validarInicial($numero, $caracteres)
@@ -217,7 +217,7 @@ class ValidarIdentificacion
     protected function validarCodigoProvincia($numero)
     {
         if ($numero < 0 OR $numero > 24) {
-            throw new Exception('Codigo de Provincia (dos primeros dígitos) no deben ser mayor a 24 ni menores a 0');
+            throw new Exception('Código de Provincia (dos primeros dígitos) no deben ser mayor a 24 ni menores a 0');
         }
 
         return true;
@@ -226,7 +226,7 @@ class ValidarIdentificacion
     /**
      * Validación de tercer dígito
      *
-     * Permite validar el tercer dígito del documento. Dependiendo
+     * Permite validad el tercer dígito del documento. Dependiendo
      * del campo tipo (tipo de identificación) se realizan las validaciones.
      * Los posibles valores del campo tipo son: cedula, ruc_natural, ruc_privada
      *
@@ -236,7 +236,7 @@ class ValidarIdentificacion
      * Para RUC de sociedades privadas el terder dígito debe ser
      * igual a 9.
      *
-     * Para RUC de sociedades públicas el terder dígito debe ser 
+     * Para RUC de sociedades públicas el terder dígito debe ser
      * igual a 6.
      *
      * @param  string $numero  tercer dígito de CI/RUC
