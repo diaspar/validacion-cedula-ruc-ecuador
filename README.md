@@ -5,12 +5,12 @@ ValidadorIdentificacion
 Introducción
 -------------
 
-Básicamente la Clase ValidadorIdentificacion permitirá tener una clase para validar Cédula y RUC del Ecuador. Se busca llegar a 
+Básicamente la Clase ValidadorIdentificacion permitirá tener una clase para validar Cédula y RUC del Ecuador. Se busca llegar a
 los lenguajes más populares: php, js, java, .net (vb, c-sharp), ruby.
 
 Ya la clase inicial creada en php permite validar cédula, RUC de persona natural y RUC de sociedad privada y públicas
 
-El siguiente link permitira conocer un poco más de la matematica asociada:
+El siguiente link permitirá conocer un poco más de la matematica asociada:
 
 http://www.icaiza.com/blog/programacion/como-validar-el-digito-verificador-de-la-cedula-ecuatoriana
 
@@ -68,7 +68,7 @@ Para ver todos los mensajes de error que provee la clase se adjunta archivo de t
 
 Para poder correr los tests, instalar y usar phpunit de la siguiente forma:
 
-phpunit --verbose  --colors ValidarIdentificacionTest.php 
+phpunit --verbose  --colors ValidarIdentificacionTest.php
 
 
 Como ayudar
