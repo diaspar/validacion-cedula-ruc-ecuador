@@ -35,8 +35,8 @@
  */
 
 /**
- * ValidarIdentificacion contiene metodos para validar cédula, RUC de persona natural, RUC de sociedad privada y
- * RUC de socieda pública en el Ecuador.
+ * ValidarIdentificacion contiene métodos para validar cédula, RUC de persona natural, RUC de sociedad privada y
+ * RUC de sociedad pública en el Ecuador.
  *
  * Los métodos públicos para realizar validaciones son:
  *
