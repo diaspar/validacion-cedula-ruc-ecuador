@@ -5,18 +5,18 @@ ValidadorIdentificacion
 Introducción
 -------------
 
-Básicamente la Clase ValidadorIdentificacion permitirá tener una clase para validar Cédula y RUC del Ecuador. Se busca llegar a 
+Básicamente la clase ValidadorIdentificacion permitirá tener una clase para validar Cédula y RUC del Ecuador. Se busca llegar a 
 los lenguajes más populares: php, js, java, .net (vb, c-sharp), ruby.
 
-Ya la clase inicial creada en php permite validar cédula, RUC de persona natural y RUC de sociedad privada y públicas
+Ya la clase inicial creada en php permite validar cédula, RUC de persona natural y RUC de sociedad privada y públicas.
 
-El siguiente link permitira conocer un poco más de la matematica asociada:
+El siguiente link permitirá conocer un poco más de la matemática asociada:
 
-http://www.icaiza.com/blog/programacion/como-validar-el-digito-verificador-de-la-cedula-ecuatoriana
+https://medium.com/@bryansuarez/c%C3%B3mo-validar-c%C3%A9dula-y-ruc-en-ecuador-b62c5666186f
 
-Adjuntamos también un documento teórico ([instructivo.pdf](https://github.com/diaspar/validacion-cedula-ruc-ecuador/blob/master/instructivo.pdf) - página 36 a la 40)
+Adjuntamos también un documento teórico ([instructivo.pdf](https://github.com/diaspar/validacion-cedula-ruc-ecuador/blob/master/instructivo.pdf) - página 36 a la 40).
 
-El proyecto cuenta con documentación automática creada por phpdocumentor en el folder docs/
+El proyecto cuenta con documentación automática creada por phpdocumentor en el folder _docs/_.
 
 
 Uso
@@ -68,21 +68,23 @@ Para ver todos los mensajes de error que provee la clase se adjunta archivo de t
 
 Para poder correr los tests, instalar y usar phpunit de la siguiente forma:
 
+```
 phpunit --verbose  --colors ValidarIdentificacionTest.php 
+```
 
 
-Como ayudar
+¿Cómo ayudar?
 ------------
 
-Me gustaría contar con la ayuda de la Comunidad. Si desean pueden:
+Me gustaría contar con la ayuda de la comunidad. Si desean pueden:
 
 - Ver el código e indicar cualquier corrección.
-- Ver y probar los tests con phpunit e indicar si pueden agregarse mas tests
-- Usar la clase de php como base y crear Una clase en otro lenguaje.
+- Ver y probar los tests con _phpunit_ e indicar si pueden agregarse más tests.
+- Usar la clase de php como base y crear una clase en otro lenguaje.
 - Crear tests para clases en otro lenguaje.
-- Mejorar la documentacion.
+- Mejorar la documentación.
 
-Si desean pueden hacer un pull request y yo acepto sus cambios a medida que los hagan.
+Si desean pueden hacer un _pull request_ y yo acepto sus cambios a medida que los hagan.
 
 
 Contactarme
