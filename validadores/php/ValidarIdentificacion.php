@@ -64,6 +64,7 @@ class ValidarIdentificacion
      *
      * @return Boolean
      */
+    //La variable numero deberia cambiarse por "$identificacion" para evitar algun tipo de ambiguedad
     public function validarCedula($numero = '')
     {
         // fuerzo parametro de entrada a string
