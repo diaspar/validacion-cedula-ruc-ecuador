@@ -230,13 +230,13 @@ class ValidarIdentificacion
      * del campo tipo (tipo de identificación) se realizan las validaciones.
      * Los posibles valores del campo tipo son: cedula, ruc_natural, ruc_privada
      *
-     * Para Cédulas y RUC de personas naturales el terder dígito debe
+     * Para Cédulas y RUC de personas naturales el tercer dígito debe
      * estar entre 0 y 5 (0,1,2,3,4,5)
      *
-     * Para RUC de sociedades privadas el terder dígito debe ser
+     * Para RUC de sociedades privadas el tercer dígito debe ser
      * igual a 9.
      *
-     * Para RUC de sociedades públicas el terder dígito debe ser 
+     * Para RUC de sociedades públicas el tercer dígito debe ser 
      * igual a 6.
      *
      * @param  string $numero  tercer dígito de CI/RUC
@@ -245,7 +245,7 @@ class ValidarIdentificacion
      * @return boolean
      *
      * @throws exception Cuando el tercer digito no es válido. El mensaje
-     * de error depende del tipo de Idenficiación.
+     * de error depende del tipo de Identificación.
      */
     protected function validarTercerDigito($numero, $tipo)
     {
@@ -361,7 +361,7 @@ class ValidarIdentificacion
         }
 
         if ($resultado != $digitoVerificador) {
-            throw new Exception('Dígitos iniciales no validan contra Dígito Idenficador');
+            throw new Exception('Dígitos iniciales no validan contra Dígito Identificador');
         }
 
         return true;
@@ -450,7 +450,7 @@ class ValidarIdentificacion
         }
 
         if ($resultado != $digitoVerificador) {
-            throw new Exception('Dígitos iniciales no validan contra Dígito Idenficador');
+            throw new Exception('Dígitos iniciales no validan contra Dígito Identificador');
         }
 
         return true;

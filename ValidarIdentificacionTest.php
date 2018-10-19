@@ -35,7 +35,7 @@
  */
 
 /**
- * @include ValidarIdenfiticacion() file.
+ * @include ValidarIdentificacion() file.
  */
 require('validadores/php/validaridentificacion.php');
 
@@ -52,7 +52,7 @@ require('validadores/php/validaridentificacion.php');
  * validarRucPersonaNatural()
  * validarRucSociedadPrivada()
  */
-class ValidarIdenfiticacionTest extends PHPUnit_Framework_TestCase
+class ValidarIdentificacionTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Validador
@@ -118,7 +118,7 @@ class ValidarIdenfiticacionTest extends PHPUnit_Framework_TestCase
         // cedula incorrecta de acuerdo a algoritmo modulo10
         $validarCedula = $this->validador->validarCedula('0926687858');
         $this->assertEquals($validarCedula, false);
-        $this->assertEquals($this->validador->getError(), 'Dígitos iniciales no validan contra Dígito Idenficador');
+        $this->assertEquals($this->validador->getError(), 'Dígitos iniciales no validan contra Dígito Identificador');
     
         // revisar que cedulas correctas validen
         $validarCedula = $this->validador->validarCedula('0602910945');
@@ -182,7 +182,7 @@ class ValidarIdenfiticacionTest extends PHPUnit_Framework_TestCase
         // ruc persona natural incorrecto de acuerdo a algoritmo modulo10
         $validarRucPersonaNatural = $this->validador->validarRucPersonaNatural('0926687858001');
         $this->assertEquals($validarRucPersonaNatural, false);
-        $this->assertEquals($this->validador->getError(), 'Dígitos iniciales no validan contra Dígito Idenficador');
+        $this->assertEquals($this->validador->getError(), 'Dígitos iniciales no validan contra Dígito Identificador');
     
         // revisar que cedulas correctas validen
         $validarRucPersonaNatural = $this->validador->validarRucPersonaNatural('0602910945001');
@@ -246,7 +246,7 @@ class ValidarIdenfiticacionTest extends PHPUnit_Framework_TestCase
         // ruc sociedad privada incorrecto de acuerdo a algoritmo modulo11
         $validarRucSociedadPrivada = $this->validador->validarRucSociedadPrivada('0992397532001');
         $this->assertEquals($validarRucSociedadPrivada, false);
-        $this->assertEquals($this->validador->getError(), 'Dígitos iniciales no validan contra Dígito Idenficador');
+        $this->assertEquals($this->validador->getError(), 'Dígitos iniciales no validan contra Dígito Identificador');
     
         // revisar que ruc correcto valide
         $validarRucSociedadPrivada = $this->validador->validarRucSociedadPrivada('0992397535001');
@@ -305,7 +305,7 @@ class ValidarIdenfiticacionTest extends PHPUnit_Framework_TestCase
         // ruc sociedad privada incorrecto de acuerdo a algoritmo modulo11
         $validarRucSociedadPublica = $this->validador->validarRucSociedadPublica('1760001520001');
         $this->assertEquals($validarRucSociedadPublica, false);
-        $this->assertEquals($this->validador->getError(), 'Dígitos iniciales no validan contra Dígito Idenficador');
+        $this->assertEquals($this->validador->getError(), 'Dígitos iniciales no validan contra Dígito Identificador');
     
         // revisar que ruc correcto valide
         $validarRucSociedadPublica = $this->validador->validarRucSociedadPublica('1760001550001');

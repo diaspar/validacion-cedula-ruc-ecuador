@@ -155,13 +155,13 @@ validarRucSociedadPrivada()</p>]]></long-description>
 del campo tipo (tipo de identificación) se realizan las validaciones.
 Los posibles valores del campo tipo son: cedula, ruc_natural, ruc_privada</p>
 
-<p>Para Cédulas y RUC de personas naturales el terder dígito debe
+<p>Para Cédulas y RUC de personas naturales el tercer dígito debe
 estar entre 0 y 5 (0,1,2,3,4,5)</p>
 
-<p>Para RUC de sociedades privadas el terder dígito debe ser
+<p>Para RUC de sociedades privadas el tercer dígito debe ser
 igual a 9.</p>
 
-<p>Para RUC de sociedades públicas el terder dígito debe ser
+<p>Para RUC de sociedades públicas el tercer dígito debe ser
 igual a 6.</p>]]></long-description>
           <tag line="250" name="param" description="tercer dígito de CI/RUC" type="string" variable="$numero">
             <type by_reference="false">string</type>
@@ -172,7 +172,7 @@ igual a 6.</p>]]></long-description>
           <tag line="250" name="return" description="" type="boolean">
             <type by_reference="false">boolean</type>
           </tag>
-          <tag line="250" name="throws" description="Cuando el tercer digito no es válido. El mensaje de error depende del tipo de Idenficiación." type="\exception">
+          <tag line="250" name="throws" description="Cuando el tercer digito no es válido. El mensaje de error depende del tipo de Identificiación." type="\exception">
             <type by_reference="false">\exception</type>
           </tag>
         </docblock>
@@ -380,12 +380,12 @@ El valor obtenido debe concordar con el digitoVerificador</p>
       <docblock line="40">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="40" name="include" description="ValidarIdenfiticacion() file."/>
+        <tag line="40" name="include" description="ValidarIdentificacion() file."/>
       </docblock>
     </include>
     <class final="false" abstract="false" namespace="" line="55" package="Default">
-      <name>ValidarIdenfiticacionTest</name>
-      <full_name>\ValidarIdenfiticacionTest</full_name>
+      <name>ValidarIdentificacionTest</name>
+      <full_name>\ValidarIdentificacionTest</full_name>
       <extends>PHPUnit_Framework_TestCase</extends>
       <docblock line="55">
         <description><![CDATA[Clase para realizar phpunit tests en la clase ValidarIdentificacion()]]></description>
