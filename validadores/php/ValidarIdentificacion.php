@@ -191,15 +191,15 @@ class ValidarIdentificacion
     protected function validarInicial($numero, $caracteres)
     {
         if (empty($numero)) {
-            throw new Exception('Valor no puede estar vacio');
+            throw new Exception('Valor no puede estar vacio');//This could be a constant
         }
 
         if (!ctype_digit($numero)) {
-            throw new Exception('Valor ingresado solo puede tener dígitos');
+            throw new Exception('Valor ingresado solo puede tener dígitos');//This could be a constant
         }
 
         if (strlen($numero) != $caracteres) {
-            throw new Exception('Valor ingresado debe tener '.$caracteres.' caracteres');
+            throw new Exception('Valor ingresado debe tener '.$caracteres.' caracteres');//This could be a constant
         }
 
         return true;
@@ -217,7 +217,7 @@ class ValidarIdentificacion
     protected function validarCodigoProvincia($numero)
     {
         if ($numero < 0 OR $numero > 24) {
-            throw new Exception('Codigo de Provincia (dos primeros dígitos) no deben ser mayor a 24 ni menores a 0');
+            throw new Exception('Codigo de Provincia (dos primeros dígitos) no deben ser mayor a 24 ni menores a 0');//This could be a constant
         }
 
         return true;
@@ -253,22 +253,22 @@ class ValidarIdentificacion
             case 'cedula':
             case 'ruc_natural':
                 if ($numero < 0 OR $numero > 5) {
-                    throw new Exception('Tercer dígito debe ser mayor o igual a 0 y menor a 6 para cédulas y RUC de persona natural');
+                    throw new Exception('Tercer dígito debe ser mayor o igual a 0 y menor a 6 para cédulas y RUC de persona natural');//This could be a constant
                 }
                 break;
             case 'ruc_privada':
                 if ($numero != 9) {
-                    throw new Exception('Tercer dígito debe ser igual a 9 para sociedades privadas');
+                    throw new Exception('Tercer dígito debe ser igual a 9 para sociedades privadas');//This could be a constant
                 }
                 break;
 
             case 'ruc_publica':
                 if ($numero != 6) {
-                    throw new Exception('Tercer dígito debe ser igual a 6 para sociedades públicas');
+                    throw new Exception('Tercer dígito debe ser igual a 6 para sociedades públicas');//This could be a constant
                 }
                 break;
             default:
-                throw new Exception('Tipo de Identificación no existe.');
+                throw new Exception('Tipo de Identificación no existe.');//This could be a constant
                 break;
         }
 
@@ -287,7 +287,7 @@ class ValidarIdentificacion
     protected function validarCodigoEstablecimiento($numero)
     {
         if ($numero < 1) {
-            throw new Exception('Código de establecimiento no puede ser 0');
+            throw new Exception('Código de establecimiento no puede ser 0');//This could be a constant
         }
 
         return true;
@@ -361,7 +361,7 @@ class ValidarIdentificacion
         }
 
         if ($resultado != $digitoVerificador) {
-            throw new Exception('Dígitos iniciales no validan contra Dígito Idenficador');
+            throw new Exception('Dígitos iniciales no validan contra Dígito Idenficador');//This could be a constant
         }
 
         return true;
@@ -428,7 +428,7 @@ class ValidarIdentificacion
                 $arrayCoeficientes = array(3, 2, 7, 6, 5, 4, 3, 2);
                 break;
             default:
-                throw new Exception('Tipo de Identificación no existe.');
+                throw new Exception('Tipo de Identificación no existe.');//This could be a constant
                 break;
         }
 
@@ -450,7 +450,7 @@ class ValidarIdentificacion
         }
 
         if ($resultado != $digitoVerificador) {
-            throw new Exception('Dígitos iniciales no validan contra Dígito Idenficador');
+            throw new Exception('Dígitos iniciales no validan contra Dígito Idenficador');//This could be a constant
         }
 
         return true;
