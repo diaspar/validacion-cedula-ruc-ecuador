@@ -1,0 +1,36 @@
+{
+  "name": "validar-identificacion-ecuador",
+  "version": "1.0.0",
+  "description": "Permite validar números de identificación ecuatorianos incluyendo: Número de cédula, RUC de personas naturales y RRUC de Sociedades públicas y privadas.",
+  "main": "ValidarIdentificacion.js",
+  "scripts": {
+    "test": "mocha --require babel-core/register",
+    "build": "babel ValidarIdentificacion.js -d dist/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diaspar/validacion-cedula-ruc-ecuador.git"
+  },
+  "keywords": [
+    "validación",
+    "ecuador",
+    "id"
+  ],
+  "author": "Ing. Mauricio Lopez <mlopez@dixian.info>",
+  "contributors" :[
+    "Juan Rosero <jfrosero@rosero.in>"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/diaspar/validacion-cedula-ruc-ecuador/issues"
+  },
+  "homepage": "https://github.com/diaspar/validacion-cedula-ruc-ecuador#readme",
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "mocha": "^5.2.0"
+  }
+}
