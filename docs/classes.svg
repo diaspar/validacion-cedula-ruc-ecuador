@@ -26,11 +26,11 @@
 <text text-anchor="middle" x="433" y="-83.6" font-family="Courier,monospace" font-size="11.00">ValidarIdentificacion</text>
 </a>
 </g>
-<!-- \\ValidarIdenfiticacionTest -->
-<g id="node3" class="node"><title>\\ValidarIdenfiticacionTest</title>
-<a xlink:href="ValidarIdentificacionTest.html" xlink:title="ValidarIdenfiticacionTest" target="_parent">
+<!-- \\ValidarIdentificacionTest -->
+<g id="node3" class="node"><title>\\ValidarIdentificacionTest</title>
+<a xlink:href="ValidarIdentificacionTest.html" xlink:title="ValidarIdentificacionTest" target="_parent">
 <polygon fill="none" stroke="black" points="523.527,-52 342.473,-52 342.473,-16 523.527,-16 523.527,-52"/>
-<text text-anchor="middle" x="433" y="-29.6" font-family="Courier,monospace" font-size="11.00">ValidarIdenfiticacionTest</text>
+<text text-anchor="middle" x="433" y="-29.6" font-family="Courier,monospace" font-size="11.00">ValidarIdentificacionTest</text>
 </a>
 </g>
 <!-- PHPUnit_Framework_TestCase -->
@@ -38,8 +38,8 @@
 <ellipse fill="none" stroke="black" cx="135" cy="-34" rx="134.636" ry="18"/>
 <text text-anchor="middle" x="135" y="-28.4" font-family="Times,serif" font-size="14.00" fill="gray">PHPUnit_Framework_TestCase</text>
 </g>
-<!-- \\ValidarIdenfiticacionTest&#45;&gt;PHPUnit_Framework_TestCase -->
-<g id="edge3" class="edge"><title>\\ValidarIdenfiticacionTest&#45;&gt;PHPUnit_Framework_TestCase</title>
+<!-- \\ValidarIdentificacionTest&#45;&gt;PHPUnit_Framework_TestCase -->
+<g id="edge3" class="edge"><title>\\ValidarIdentificacionTest&#45;&gt;PHPUnit_Framework_TestCase</title>
 <path fill="none" stroke="black" d="M342.387,-34C322.63,-34 301.219,-34 279.922,-34"/>
 <polygon fill="none" stroke="black" points="279.818,-30.5001 269.818,-34 279.818,-37.5001 279.818,-30.5001"/>
 </g>
