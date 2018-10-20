@@ -10,7 +10,7 @@ los lenguajes más populares: php, js, java, .net (vb, c-sharp), ruby.
 
 Ya la clase inicial creada en php permite validar cédula, RUC de persona natural y RUC de sociedad privada y públicas
 
-El siguiente link permitira conocer un poco más de la matematica asociada:
+El siguiente link permitirá conocer un poco más de la matemática asociada:
 
 http://www.icaiza.com/blog/programacion/como-validar-el-digito-verificador-de-la-cedula-ecuatoriana
 
@@ -23,7 +23,7 @@ Uso
 ----
 
 - Incluir la clase en el proyecto PHP deseado.
-- Instanciar la clase y llamar al metodo para validar la identificación
+- Instanciar la clase y llamar al método para validar la identificación
 
 ```
 require('validadores/php/validaridentificacion.php');
@@ -77,10 +77,10 @@ Como ayudar
 Me gustaría contar con la ayuda de la Comunidad. Si desean pueden:
 
 - Ver el código e indicar cualquier corrección.
-- Ver y probar los tests con phpunit e indicar si pueden agregarse mas tests
+- Ver y probar los tests con phpunit e indicar si pueden agregarse más tests
 - Usar la clase de php como base y crear Una clase en otro lenguaje.
 - Crear tests para clases en otro lenguaje.
-- Mejorar la documentacion.
+- Mejorar la documentación.
 
 Si desean pueden hacer un pull request y yo acepto sus cambios a medida que los hagan.
 
