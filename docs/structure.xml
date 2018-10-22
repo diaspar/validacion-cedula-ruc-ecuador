@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project version="2.0.0a5" title="">
-  <file path="validadores/php/ValidarIdentificacion.php" hash="8e60cb605247a57552f3bc3d12ea96aa" package="Default">
+  <file path="validadores/php/validateID.php" hash="8e60cb605247a57552f3bc3d12ea96aa" package="Default">
     <class final="false" abstract="false" namespace="" line="47" package="Default">
-      <name>ValidarIdentificacion</name>
-      <full_name>\ValidarIdentificacion</full_name>
+      <name>validateID</name>
+      <full_name>\validateID</full_name>
       <extends/>
       <docblock line="47">
-        <description><![CDATA[ValidarIdentificacion contiene metodos para validar cédula, RUC de persona natural, RUC de sociedad privada y
+        <description><![CDATA[validateID contiene metodos para validar cédula, RUC de persona natural, RUC de sociedad privada y
 RUC de socieda pública en el Ecuador.]]></description>
         <long-description><![CDATA[<p>Los métodos públicos para realizar validaciones son:</p>
 
-<p>validarCedula()
-validarRucPersonaNatural()
-validarRucSociedadPrivada()</p>]]></long-description>
+<p>validateCedula()
+validateNaturalPersonRuc()
+validatePrivateCompanyRuc()</p>]]></long-description>
       </docblock>
       <property final="false" static="false" visibility="protected" line="58" namespace="" package="Default">
         <name>$error</name>
         <default><![CDATA['']]></default>
       </property>
       <method final="false" abstract="false" static="false" visibility="public" namespace="" line="67" package="Default">
-        <name>validarCedula</name>
-        <full_name>validarCedula</full_name>
+        <name>validateCedula</name>
+        <full_name>validateCedula</full_name>
         <docblock line="67">
           <description><![CDATA[Validar cédula]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="67" name="param" description="Número de cédula" type="string" variable="$numero">
+          <tag line="67" name="param" description="Número de cédula" type="string" variable="$number">
             <type by_reference="false">string</type>
           </tag>
           <tag line="67" name="return" description="" type="Boolean">
@@ -32,18 +32,18 @@ validarRucSociedadPrivada()</p>]]></long-description>
           </tag>
         </docblock>
         <argument line="67">
-          <name>$numero</name>
+          <name>$number</name>
           <default><![CDATA['']]></default>
           <type/>
         </argument>
       </method>
       <method final="false" abstract="false" static="false" visibility="public" namespace="" line="96" package="Default">
-        <name>validarRucPersonaNatural</name>
-        <full_name>validarRucPersonaNatural</full_name>
+        <name>validateNaturalPersonRuc</name>
+        <full_name>validateNaturalPersonRuc</full_name>
         <docblock line="96">
           <description><![CDATA[Validar RUC persona natural]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="96" name="param" description="Número de RUC persona natural" type="string" variable="$numero">
+          <tag line="96" name="param" description="Número de RUC persona natural" type="string" variable="$number">
             <type by_reference="false">string</type>
           </tag>
           <tag line="96" name="return" description="" type="Boolean">
@@ -51,18 +51,18 @@ validarRucSociedadPrivada()</p>]]></long-description>
           </tag>
         </docblock>
         <argument line="96">
-          <name>$numero</name>
+          <name>$number</name>
           <default><![CDATA['']]></default>
           <type/>
         </argument>
       </method>
       <method final="false" abstract="false" static="false" visibility="public" namespace="" line="127" package="Default">
-        <name>validarRucSociedadPrivada</name>
-        <full_name>validarRucSociedadPrivada</full_name>
+        <name>validatePrivateCompanyRuc</name>
+        <full_name>validatePrivateCompanyRuc</full_name>
         <docblock line="127">
           <description><![CDATA[Validar RUC sociedad privada]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="127" name="param" description="Número de RUC sociedad privada" type="string" variable="$numero">
+          <tag line="127" name="param" description="Número de RUC sociedad privada" type="string" variable="$number">
             <type by_reference="false">string</type>
           </tag>
           <tag line="127" name="return" description="" type="Boolean">
@@ -70,18 +70,18 @@ validarRucSociedadPrivada()</p>]]></long-description>
           </tag>
         </docblock>
         <argument line="127">
-          <name>$numero</name>
+          <name>$number</name>
           <default><![CDATA['']]></default>
           <type/>
         </argument>
       </method>
       <method final="false" abstract="false" static="false" visibility="public" namespace="" line="157" package="Default">
-        <name>validarRucSociedadPublica</name>
-        <full_name>validarRucSociedadPublica</full_name>
+        <name>validatePublicCompanyRuc</name>
+        <full_name>validatePublicCompanyRuc</full_name>
         <docblock line="157">
           <description><![CDATA[Validar RUC sociedad publica]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="157" name="param" description="Número de RUC sociedad publica" type="string" variable="$numero">
+          <tag line="157" name="param" description="Número de RUC sociedad publica" type="string" variable="$number">
             <type by_reference="false">string</type>
           </tag>
           <tag line="157" name="return" description="" type="Boolean">
@@ -89,48 +89,48 @@ validarRucSociedadPrivada()</p>]]></long-description>
           </tag>
         </docblock>
         <argument line="157">
-          <name>$numero</name>
+          <name>$number</name>
           <default><![CDATA['']]></default>
           <type/>
         </argument>
       </method>
       <method final="false" abstract="false" static="false" visibility="protected" namespace="" line="191" package="Default">
-        <name>validarInicial</name>
-        <full_name>validarInicial</full_name>
+        <name>validateInitial</name>
+        <full_name>validateInitial</full_name>
         <docblock line="191">
           <description><![CDATA[Validaciones iniciales para CI y RUC]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="191" name="param" description="CI o RUC" type="string" variable="$numero">
+          <tag line="191" name="param" description="CI o RUC" type="string" variable="$number">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="191" name="param" description="Cantidad de caracteres requeridos" type="integer" variable="$caracteres">
+          <tag line="191" name="param" description="Cantidad de characters requeridos" type="integer" variable="$characters">
             <type by_reference="false">integer</type>
           </tag>
           <tag line="191" name="return" description="" type="Boolean">
             <type by_reference="false">Boolean</type>
           </tag>
-          <tag line="191" name="throws" description="Cuando valor esta vacio, cuando no es dígito y cuando no tiene cantidad requerida de caracteres" type="\exception">
+          <tag line="191" name="throws" description="Cuando valor esta vacio, cuando no es dígito y cuando no tiene cantidad requerida de characters" type="\exception">
             <type by_reference="false">\exception</type>
           </tag>
         </docblock>
         <argument line="191">
-          <name>$numero</name>
+          <name>$number</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
         <argument line="191">
-          <name>$caracteres</name>
+          <name>$characters</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
       <method final="false" abstract="false" static="false" visibility="protected" namespace="" line="217" package="Default">
-        <name>validarCodigoProvincia</name>
-        <full_name>validarCodigoProvincia</full_name>
+        <name>valideProvinceCode</name>
+        <full_name>valideProvinceCode</full_name>
         <docblock line="217">
           <description><![CDATA[Validación de código de provincia (dos primeros dígitos de CI/RUC)]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="217" name="param" description="Dos primeros dígitos de CI/RUC" type="string" variable="$numero">
+          <tag line="217" name="param" description="Dos primeros dígitos de CI/RUC" type="string" variable="$number">
             <type by_reference="false">string</type>
           </tag>
           <tag line="217" name="return" description="" type="boolean">
@@ -141,14 +141,14 @@ validarRucSociedadPrivada()</p>]]></long-description>
           </tag>
         </docblock>
         <argument line="217">
-          <name>$numero</name>
+          <name>$number</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
       <method final="false" abstract="false" static="false" visibility="protected" namespace="" line="250" package="Default">
-        <name>validarTercerDigito</name>
-        <full_name>validarTercerDigito</full_name>
+        <name>validateThirdDigit</name>
+        <full_name>validateThirdDigit</full_name>
         <docblock line="250">
           <description><![CDATA[Validación de tercer dígito]]></description>
           <long-description><![CDATA[<p>Permite validad el tercer dígito del documento. Dependiendo
@@ -163,7 +163,7 @@ igual a 9.</p>
 
 <p>Para RUC de sociedades públicas el terder dígito debe ser
 igual a 6.</p>]]></long-description>
-          <tag line="250" name="param" description="tercer dígito de CI/RUC" type="string" variable="$numero">
+          <tag line="250" name="param" description="tercer dígito de CI/RUC" type="string" variable="$number">
             <type by_reference="false">string</type>
           </tag>
           <tag line="250" name="param" description="tipo de identificador" type="string" variable="$tipo">
@@ -177,7 +177,7 @@ igual a 6.</p>]]></long-description>
           </tag>
         </docblock>
         <argument line="250">
-          <name>$numero</name>
+          <name>$number</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
@@ -188,12 +188,12 @@ igual a 6.</p>]]></long-description>
         </argument>
       </method>
       <method final="false" abstract="false" static="false" visibility="protected" namespace="" line="287" package="Default">
-        <name>validarCodigoEstablecimiento</name>
-        <full_name>validarCodigoEstablecimiento</full_name>
+        <name>validateEstablishmentCode</name>
+        <full_name>validateEstablishmentCode</full_name>
         <docblock line="287">
           <description><![CDATA[Validación de código de establecimiento]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="287" name="param" description="tercer dígito de CI/RUC" type="string" variable="$numero">
+          <tag line="287" name="param" description="tercer dígito de CI/RUC" type="string" variable="$number">
             <type by_reference="false">string</type>
           </tag>
           <tag line="287" name="return" description="" type="boolean">
@@ -204,14 +204,14 @@ igual a 6.</p>]]></long-description>
           </tag>
         </docblock>
         <argument line="287">
-          <name>$numero</name>
+          <name>$number</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
       <method final="false" abstract="false" static="false" visibility="protected" namespace="" line="334" package="Default">
-        <name>algoritmoModulo10</name>
-        <full_name>algoritmoModulo10</full_name>
+        <name>module10Algorithm</name>
+        <full_name>module10Algorithm</full_name>
         <docblock line="334">
           <description><![CDATA[Algoritmo Modulo10 para validar si CI y RUC de persona natural son válidos.]]></description>
           <long-description><![CDATA[<p>Los coeficientes usados para verificar el décimo dígito de la cédula,
@@ -265,8 +265,8 @@ El valor obtenido debe concordar con el digitoVerificador</p>
         </argument>
       </method>
       <method final="false" abstract="false" static="false" visibility="protected" namespace="" line="421" package="Default">
-        <name>algoritmoModulo11</name>
-        <full_name>algoritmoModulo11</full_name>
+        <name>module11Algorithm</name>
+        <full_name>module11Algorithm</full_name>
         <docblock line="421">
           <description><![CDATA[Algoritmo Modulo11 para validar RUC de sociedades privadas y públicas]]></description>
           <long-description><![CDATA[<p>El código verificador es el decimo digito para RUC de empresas privadas
@@ -374,9 +374,9 @@ El valor obtenido debe concordar con el digitoVerificador</p>
       <error line="58" code="50018">No DocBlock was found for property $error</error>
     </parse_markers>
   </file>
-  <file path="ValidarIdentificacionTest.php" hash="8b76812e9fb26996449b5b599fd8313f" package="Default">
+  <file path="validateIDTest.php" hash="8b76812e9fb26996449b5b599fd8313f" package="Default">
     <include line="40" type="Require" package="Default">
-      <name>validadores/php/validaridentificacion.php</name>
+      <name>validadores/php/validateID.php</name>
       <docblock line="40">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
@@ -388,15 +388,15 @@ El valor obtenido debe concordar con el digitoVerificador</p>
       <full_name>\ValidarIdenfiticacionTest</full_name>
       <extends>PHPUnit_Framework_TestCase</extends>
       <docblock line="55">
-        <description><![CDATA[Clase para realizar phpunit tests en la clase ValidarIdentificacion()]]></description>
+        <description><![CDATA[Clase para realizar phpunit tests en la clase validateID()]]></description>
         <long-description><![CDATA[<p>Se realizan phpunit tests en format de assertions sobre los métodos
-públicos de la clases ValidarIdentificacion().</p>
+públicos de la clases validateID().</p>
 
 <p>Los métodos públicos son:</p>
 
-<p>validarCedula()
-validarRucPersonaNatural()
-validarRucSociedadPrivada()</p>]]></long-description>
+<p>validateCedula()
+validateNaturalPersonRuc()
+validatePrivateCompanyRuc()</p>]]></long-description>
       </docblock>
       <property final="false" static="false" visibility="protected" line="65" namespace="" package="Default">
         <name>$validador</name>
@@ -406,7 +406,7 @@ validarRucSociedadPrivada()</p>]]></long-description>
         <name>setUp</name>
         <full_name>setUp</full_name>
         <docblock line="70">
-          <description><![CDATA[Inicio objecto ValidarIdentificacion()]]></description>
+          <description><![CDATA[Inicio objecto validateID()]]></description>
           <long-description><![CDATA[]]></long-description>
         </docblock>
       </method>
@@ -414,7 +414,7 @@ validarRucSociedadPrivada()</p>]]></long-description>
         <name>testCedula</name>
         <full_name>testCedula</full_name>
         <docblock line="78">
-          <description><![CDATA[Tests sobre método público validarCedula()]]></description>
+          <description><![CDATA[Tests sobre método público validateCedula()]]></description>
           <long-description><![CDATA[]]></long-description>
         </docblock>
       </method>
@@ -422,7 +422,7 @@ validarRucSociedadPrivada()</p>]]></long-description>
         <name>testRucPersonaNatural</name>
         <full_name>testRucPersonaNatural</full_name>
         <docblock line="137">
-          <description><![CDATA[Tests sobre método público validarRucPersonaNatural()]]></description>
+          <description><![CDATA[Tests sobre método público validateNaturalPersonRuc()]]></description>
           <long-description><![CDATA[]]></long-description>
         </docblock>
       </method>
@@ -430,7 +430,7 @@ validarRucSociedadPrivada()</p>]]></long-description>
         <name>testRucSociedadPrivada</name>
         <full_name>testRucSociedadPrivada</full_name>
         <docblock line="201">
-          <description><![CDATA[Tests sobre método público validarRucSociedadPrivada()]]></description>
+          <description><![CDATA[Tests sobre método público validatePrivateCompanyRuc()]]></description>
           <long-description><![CDATA[]]></long-description>
         </docblock>
       </method>
@@ -438,7 +438,7 @@ validarRucSociedadPrivada()</p>]]></long-description>
         <name>testRucSociedadPublica</name>
         <full_name>testRucSociedadPublica</full_name>
         <docblock line="260">
-          <description><![CDATA[Tests sobre método público validarRucSociedadPublica()]]></description>
+          <description><![CDATA[Tests sobre método público validatePublicCompanyRuc()]]></description>
           <long-description><![CDATA[]]></long-description>
         </docblock>
       </method>

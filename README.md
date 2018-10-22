@@ -26,34 +26,34 @@ Uso
 - Instanciar la clase y llamar al metodo para validar la identificación
 
 ```
-require('validadores/php/validaridentificacion.php');
+require('validadores/php/validateID.php');
 
 // Crear nuevo objecto
-$validador = new ValidarIdentificacion();
+$validador = new validateID();
 
 // validar CI
-if ($validador->validarCedula('0926687856')) {
+if ($validador->validateCedula('0926687856')) {
     echo 'Cédula válida';
 } else {
     echo 'Cédula incorrecta: '.$validador->getMessage();
 }
 
 // validar RUC persona natural
-if ($validador->validarRucPersonaNatural('0926687856001')) {
+if ($validador->validateNaturalPersonRuc('0926687856001')) {
     echo 'RUC válido';
 } else {
     echo 'RUC incorrecto: '.$validador->getMessage();
 }
 
 // validar RUC sociedad privada
-if ($validador->validarRucSociedadPrivada('0992397535001')) {
+if ($validador->validatePrivateCompanyRuc('0992397535001')) {
     echo 'RUC válido';
 } else {
     echo 'RUC incorrecto: '.$validador->getMessage();
 }
 
 // validar RUC sociedad ublica
-if ($validador->validarRucSociedadPublica('1760001550001')) {
+if ($validador->validatePublicCompanyRuc('1760001550001')) {
     echo 'RUC válido';
 } else {
     echo 'RUC incorrecto: '.$validador->getMessage();
@@ -68,7 +68,7 @@ Para ver todos los mensajes de error que provee la clase se adjunta archivo de t
 
 Para poder correr los tests, instalar y usar phpunit de la siguiente forma:
 
-phpunit --verbose  --colors ValidarIdentificacionTest.php 
+phpunit --verbose  --colors validateIDTest.php 
 
 
 Como ayudar
