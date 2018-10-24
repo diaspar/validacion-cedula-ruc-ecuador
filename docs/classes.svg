@@ -19,16 +19,16 @@
 <polyline fill="none" stroke="gray" points="334,-102 334,-20 "/>
 <path fill="none" stroke="gray" d="M334,-20C334,-14 340,-8 346,-8"/>
 </g>
-<!-- \\ValidarIdentificacion -->
-<g id="node2" class="node"><title>\\ValidarIdentificacion</title>
-<a xlink:href="validadores.php.ValidarIdentificacion.html" xlink:title="ValidarIdentificacion" target="_parent">
+<!-- \\validateID -->
+<g id="node2" class="node"><title>\\validateID</title>
+<a xlink:href="validadores.php.validateID.html" xlink:title="validateID" target="_parent">
 <polygon fill="none" stroke="black" points="510.123,-106 355.877,-106 355.877,-70 510.123,-70 510.123,-106"/>
-<text text-anchor="middle" x="433" y="-83.6" font-family="Courier,monospace" font-size="11.00">ValidarIdentificacion</text>
+<text text-anchor="middle" x="433" y="-83.6" font-family="Courier,monospace" font-size="11.00">validateID</text>
 </a>
 </g>
 <!-- \\ValidarIdenfiticacionTest -->
 <g id="node3" class="node"><title>\\ValidarIdenfiticacionTest</title>
-<a xlink:href="ValidarIdentificacionTest.html" xlink:title="ValidarIdenfiticacionTest" target="_parent">
+<a xlink:href="validateIDTest.html" xlink:title="ValidarIdenfiticacionTest" target="_parent">
 <polygon fill="none" stroke="black" points="523.527,-52 342.473,-52 342.473,-16 523.527,-16 523.527,-52"/>
 <text text-anchor="middle" x="433" y="-29.6" font-family="Courier,monospace" font-size="11.00">ValidarIdenfiticacionTest</text>
 </a>

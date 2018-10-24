@@ -25,7 +25,7 @@
  * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
- * @package     ValidarIdentificacion
+ * @package     validateID
  * @subpackage
  * @author      Ing. Mauricio Lopez <mlopez@dixian.info>
  * @copyright   2012 Ing. Mauricio Lopez (diaspar)
@@ -35,16 +35,16 @@
  */
 
 /**
- * ValidarIdentificacion contiene metodos para validar cédula, RUC de persona natural, RUC de sociedad privada y
+ * validateID contiene metodos para validar cédula, RUC de persona natural, RUC de sociedad privada y
  * RUC de socieda pública en el Ecuador.
  *
  * Los métodos públicos para realizar validaciones son:
  *
- * validarCedula()
- * validarRucPersonaNatural()
- * validarRucSociedadPrivada()
+ * validateCedula()
+ * validateNaturalPersonRuc()
+ * validatePrivateCompanyRuc()
  */
-class ValidarIdentificacion
+class validateID
 {
 
     /**
@@ -60,24 +60,24 @@ class ValidarIdentificacion
     /**
      * Validar cédula
      *
-     * @param  string  $numero  Número de cédula
+     * @param  string  $number  Número de cédula
      *
      * @return Boolean
      */
-    public function validarCedula($numero = '')
+    public function validateCedula($number = '')
     {
         // fuerzo parametro de entrada a string
-        $numero = (string)$numero;
+        $number = (string)$number;
 
         // borro por si acaso errores de llamadas anteriores.
         $this->setError('');
 
         // validaciones
         try {
-            $this->validarInicial($numero, '10');
-            $this->validarCodigoProvincia(substr($numero, 0, 2));
-            $this->validarTercerDigito($numero[2], 'cedula');
-            $this->algoritmoModulo10(substr($numero, 0, 9), $numero[9]);
+            $this->validateInitial($number, '10');
+            $this->valideProvinceCode(substr($number, 0, 2));
+            $this->validateThirdDigit($number[2], 'cedula');
+            $this->module10Algorithm(substr($number, 0, 9), $number[9]);
         } catch (Exception $e) {
             $this->setError($e->getMessage());
             return false;
@@ -89,25 +89,25 @@ class ValidarIdentificacion
     /**
      * Validar RUC persona natural
      *
-     * @param  string  $numero  Número de RUC persona natural
+     * @param  string  $number  Número de RUC persona natural
      *
      * @return Boolean
      */
-    public function validarRucPersonaNatural($numero = '')
+    public function validateNaturalPersonRuc($number = '')
     {
         // fuerzo parametro de entrada a string
-        $numero = (string)$numero;
+        $number = (string)$number;
 
         // borro por si acaso errores de llamadas anteriores.
         $this->setError('');
 
         // validaciones
         try {
-            $this->validarInicial($numero, '13');
-            $this->validarCodigoProvincia(substr($numero, 0, 2));
-            $this->validarTercerDigito($numero[2], 'ruc_natural');
-            $this->validarCodigoEstablecimiento(substr($numero, 10, 3));
-            $this->algoritmoModulo10(substr($numero, 0, 9), $numero[9]);
+            $this->validateInitial($number, '13');
+            $this->valideProvinceCode(substr($number, 0, 2));
+            $this->validateThirdDigit($number[2], 'ruc_natural');
+            $this->validateEstablishmentCode(substr($number, 10, 3));
+            $this->module10Algorithm(substr($number, 0, 9), $number[9]);
         } catch (Exception $e) {
             $this->setError($e->getMessage());
             return false;
@@ -120,25 +120,25 @@ class ValidarIdentificacion
     /**
      * Validar RUC sociedad privada
      *
-     * @param  string  $numero  Número de RUC sociedad privada
+     * @param  string  $number  Número de RUC sociedad privada
      *
      * @return Boolean
      */
-    public function validarRucSociedadPrivada($numero = '')
+    public function validatePrivateCompanyRuc($number = '')
     {
         // fuerzo parametro de entrada a string
-        $numero = (string)$numero;
+        $number = (string)$number;
 
         // borro por si acaso errores de llamadas anteriores.
         $this->setError('');
 
         // validaciones
         try {
-            $this->validarInicial($numero, '13');
-            $this->validarCodigoProvincia(substr($numero, 0, 2));
-            $this->validarTercerDigito($numero[2], 'ruc_privada');
-            $this->validarCodigoEstablecimiento(substr($numero, 10, 3));
-            $this->algoritmoModulo11(substr($numero, 0, 9), $numero[9], 'ruc_privada');
+            $this->validateInitial($number, '13');
+            $this->valideProvinceCode(substr($number, 0, 2));
+            $this->validateThirdDigit($number[2], 'ruc_privada');
+            $this->validateEstablishmentCode(substr($number, 10, 3));
+            $this->module11Algorithm(substr($number, 0, 9), $number[9], 'ruc_privada');
         } catch (Exception $e) {
             $this->setError($e->getMessage());
             return false;
@@ -150,25 +150,25 @@ class ValidarIdentificacion
     /**
      * Validar RUC sociedad publica
      *
-     * @param  string  $numero  Número de RUC sociedad publica
+     * @param  string  $number  Número de RUC sociedad publica
      *
      * @return Boolean
      */
-    public function validarRucSociedadPublica($numero = '')
+    public function validatePublicCompanyRuc($number = '')
     {
         // fuerzo parametro de entrada a string
-        $numero = (string)$numero;
+        $number = (string)$number;
 
         // borro por si acaso errores de llamadas anteriores.
         $this->setError('');
 
         // validaciones
         try {
-            $this->validarInicial($numero, '13');
-            $this->validarCodigoProvincia(substr($numero, 0, 2));
-            $this->validarTercerDigito($numero[2], 'ruc_publica');
-            $this->validarCodigoEstablecimiento(substr($numero, 9, 4));
-            $this->algoritmoModulo11(substr($numero, 0, 8), $numero[8], 'ruc_publica');
+            $this->validateInitial($number, '13');
+            $this->valideProvinceCode(substr($number, 0, 2));
+            $this->validateThirdDigit($number[2], 'ruc_publica');
+            $this->validateEstablishmentCode(substr($number, 9, 4));
+            $this->module11Algorithm(substr($number, 0, 8), $number[8], 'ruc_publica');
         } catch (Exception $e) {
             $this->setError($e->getMessage());
             return false;
@@ -180,26 +180,26 @@ class ValidarIdentificacion
     /**
      * Validaciones iniciales para CI y RUC
      *
-     * @param  string  $numero      CI o RUC
-     * @param  integer $caracteres  Cantidad de caracteres requeridos
+     * @param  string  $number      CI o RUC
+     * @param  integer $characters  Cantidad de characters requeridos
      *
      * @return Boolean
      *
      * @throws exception Cuando valor esta vacio, cuando no es dígito y
-     * cuando no tiene cantidad requerida de caracteres
+     * cuando no tiene cantidad requerida de characters
      */
-    protected function validarInicial($numero, $caracteres)
+    protected function validateInitial($number, $characters)
     {
-        if (empty($numero)) {
+        if (empty($number)) {
             throw new Exception('Valor no puede estar vacio');
         }
 
-        if (!ctype_digit($numero)) {
+        if (!ctype_digit($number)) {
             throw new Exception('Valor ingresado solo puede tener dígitos');
         }
 
-        if (strlen($numero) != $caracteres) {
-            throw new Exception('Valor ingresado debe tener '.$caracteres.' caracteres');
+        if (strlen($number) != $characters) {
+            throw new Exception('Valor ingresado debe tener '.$characters.' characters');
         }
 
         return true;
@@ -208,15 +208,15 @@ class ValidarIdentificacion
     /**
      * Validación de código de provincia (dos primeros dígitos de CI/RUC)
      *
-     * @param  string  $numero  Dos primeros dígitos de CI/RUC
+     * @param  string  $number  Dos primeros dígitos de CI/RUC
      *
      * @return boolean
      *
      * @throws exception Cuando el código de provincia no esta entre 00 y 24
      */
-    protected function validarCodigoProvincia($numero)
+    protected function valideProvinceCode($number)
     {
-        if ($numero < 0 OR $numero > 24) {
+        if ($number < 0 OR $number > 24) {
             throw new Exception('Codigo de Provincia (dos primeros dígitos) no deben ser mayor a 24 ni menores a 0');
         }
 
@@ -236,10 +236,10 @@ class ValidarIdentificacion
      * Para RUC de sociedades privadas el terder dígito debe ser
      * igual a 9.
      *
-     * Para RUC de sociedades públicas el terder dígito debe ser 
+     * Para RUC de sociedades públicas el terder dígito debe ser
      * igual a 6.
      *
-     * @param  string $numero  tercer dígito de CI/RUC
+     * @param  string $number  tercer dígito de CI/RUC
      * @param  string $tipo  tipo de identificador
      *
      * @return boolean
@@ -247,23 +247,23 @@ class ValidarIdentificacion
      * @throws exception Cuando el tercer digito no es válido. El mensaje
      * de error depende del tipo de Idenficiación.
      */
-    protected function validarTercerDigito($numero, $tipo)
+    protected function validateThirdDigit($number, $tipo)
     {
         switch ($tipo) {
             case 'cedula':
             case 'ruc_natural':
-                if ($numero < 0 OR $numero > 5) {
+                if ($number < 0 OR $number > 5) {
                     throw new Exception('Tercer dígito debe ser mayor o igual a 0 y menor a 6 para cédulas y RUC de persona natural');
                 }
                 break;
             case 'ruc_privada':
-                if ($numero != 9) {
+                if ($number != 9) {
                     throw new Exception('Tercer dígito debe ser igual a 9 para sociedades privadas');
                 }
                 break;
 
             case 'ruc_publica':
-                if ($numero != 6) {
+                if ($number != 6) {
                     throw new Exception('Tercer dígito debe ser igual a 6 para sociedades públicas');
                 }
                 break;
@@ -278,15 +278,15 @@ class ValidarIdentificacion
     /**
      * Validación de código de establecimiento
      *
-     * @param  string $numero  tercer dígito de CI/RUC
+     * @param  string $number  tercer dígito de CI/RUC
      *
      * @return boolean
      *
      * @throws exception Cuando el establecimiento es menor a 1
      */
-    protected function validarCodigoEstablecimiento($numero)
+    protected function validateEstablishmentCode($number)
     {
-        if ($numero < 1) {
+        if ($number < 1) {
             throw new Exception('Código de establecimiento no puede ser 0');
         }
 
@@ -331,7 +331,7 @@ class ValidarIdentificacion
      * @throws exception Cuando los digitosIniciales no concuerdan contra
      * el código verificador.
      */
-    protected function algoritmoModulo10($digitosIniciales, $digitoVerificador)
+    protected function module10Algorithm($digitosIniciales, $digitoVerificador)
     {
         $arrayCoeficientes = array(2,1,2,1,2,1,2,1,2);
 
@@ -418,7 +418,7 @@ class ValidarIdentificacion
      * @throws exception Cuando los digitosIniciales no concuerdan contra
      * el código verificador.
      */
-    protected function algoritmoModulo11($digitosIniciales, $digitoVerificador, $tipo)
+    protected function module11Algorithm($digitosIniciales, $digitoVerificador, $tipo)
     {
         switch ($tipo) {
             case 'ruc_privada':
