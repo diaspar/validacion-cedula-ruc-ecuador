@@ -190,6 +190,9 @@ class ValidarIdentificacion
      */
     protected function validarInicial($numero, $caracteres)
     {
+        /**
+         * Make use of regular expression and make use of preg_match() to evaluate the three conditions here
+         * */
         if (empty($numero)) {
             throw new Exception('Valor no puede estar vacio');
         }
