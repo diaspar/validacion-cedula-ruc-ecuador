@@ -36,7 +36,7 @@ class ValidarIdentificacion {
      *
      * @return {Boolean}
      */
-    validarRUCPersonaNatural(numero = '') {
+    validarRucPersonaNatural(numero = '') {
         // fuerzo parametro de entrada a string
         numero = '' + numero;
 
@@ -65,7 +65,7 @@ class ValidarIdentificacion {
      *
      * @return {Boolean}
      */
-    validarRUCSociedadPrivada(numero = '') {
+    validarRucSociedadPrivada(numero = '') {
         // fuerzo parametro de entrada a string
         numero = '' + numero;
 
@@ -94,7 +94,7 @@ class ValidarIdentificacion {
      *
      * @return {Boolean}
      */
-    validarRUCSociedadPublica(numero = '') {
+    validarRucSociedadPublica(numero = '') {
         // fuerzo parametro de entrada a string
         numero = '' + numero;
 
@@ -197,10 +197,12 @@ class ValidarIdentificacion {
                 if (numero != 9) {
                     throw new Error('Tercer dígito debe ser igual a 9 para sociedades privadas'); 
                 }
+                break;
             case 'ruc_publica':
                 if (numero != 6) {
                     throw new Error('Tercer dígito debe ser igual a 6 para sociedades públicas');
                 }
+                break;
             default:
                 throw new Error('Tipo de Identificación no existe.');
                 break;
@@ -219,7 +221,7 @@ class ValidarIdentificacion {
      * @throws {Error} Cuando el establecimiento es menor a 1
      */
     _validarCodigoEstablecimiento(numero) {
-        if (Number(numbero) < 1) {
+        if (Number(numero) < 1) {
             throw new Error('Código de establecimiento no puede ser 0');
         }
 
@@ -358,25 +360,25 @@ class ValidarIdentificacion {
                 throw new Error('Tipo de Identificación no existe.');
                 break;
             
-            digitoVerificador = Number(digitoVerificador);
-            digitosIniciales = digitosIniciales.split('');
-
-            let total = 0;
-
-            for (const [key, value] of digitosIniciales.entries()) {
-                total += Number(value) * arrayCoeficientes[key];;
-            }
-
-            const residuo = total % 11;
-
-            const resultado = residuo == 0 ? 0 : 11 - residuo;
-
-            if (resultado != digitoVerificador) {
-                throw new Error('Dígitos iniciales no validan contra Dígito Idenficador');
-            }
-
-            return true;
         }
+        digitoVerificador = Number(digitoVerificador);
+        digitosIniciales = digitosIniciales.split('');
+
+        let total = 0;
+
+        for (const [key, value] of digitosIniciales.entries()) {
+            total += Number(value) * arrayCoeficientes[key];;
+        }
+
+        const residuo = total % 11;
+
+        const resultado = residuo == 0 ? 0 : 11 - residuo;
+
+        if (resultado != digitoVerificador) {
+            throw new Error('Dígitos iniciales no validan contra Dígito Idenficador');
+        }
+
+        return true;
     }
 
     get error() {
