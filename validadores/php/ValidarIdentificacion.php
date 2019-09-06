@@ -35,8 +35,8 @@
  */
 
 /**
- * ValidarIdentificacion contiene metodos para validar cédula, RUC de persona natural, RUC de sociedad privada y
- * RUC de socieda pública en el Ecuador.
+ * ValidarIdentificacion contiene métodos para validar cédula, RUC de persona natural, RUC de sociedad privada y
+ * RUC de sociedad pública en el Ecuador.
  *
  * Los métodos públicos para realizar validaciones son:
  *
@@ -66,7 +66,7 @@ class ValidarIdentificacion
      */
     public function validarCedula($numero = '')
     {
-        // fuerzo parametro de entrada a string
+        // fuerzo parámetro de entrada a string
         $numero = (string)$numero;
 
         // borro por si acaso errores de llamadas anteriores.
@@ -156,7 +156,7 @@ class ValidarIdentificacion
      */
     public function validarRucSociedadPublica($numero = '')
     {
-        // fuerzo parametro de entrada a string
+        // fuerzo parámetro de entrada a string
         $numero = (string)$numero;
 
         // borro por si acaso errores de llamadas anteriores.
@@ -191,15 +191,15 @@ class ValidarIdentificacion
     protected function validarInicial($numero, $caracteres)
     {
         if (empty($numero)) {
-            throw new Exception('Valor no puede estar vacio');
+            throw new Exception('El valor no debe estar vacio');
         }
 
         if (!ctype_digit($numero)) {
-            throw new Exception('Valor ingresado solo puede tener dígitos');
+            throw new Exception('El valor ingresado debe contener solo digitos');
         }
 
         if (strlen($numero) != $caracteres) {
-            throw new Exception('Valor ingresado debe tener '.$caracteres.' caracteres');
+            throw new Exception('El valor ingresado debe contener '.$caracteres.' caracteres');
         }
 
         return true;
@@ -217,7 +217,7 @@ class ValidarIdentificacion
     protected function validarCodigoProvincia($numero)
     {
         if ($numero < 0 OR $numero > 24) {
-            throw new Exception('Codigo de Provincia (dos primeros dígitos) no deben ser mayor a 24 ni menores a 0');
+            hrow new Exception('El código de Provincia (dos primeros dígitos) NO debe ser mayor a 24 ni menor a 0');
         }
 
         return true;
@@ -226,7 +226,7 @@ class ValidarIdentificacion
     /**
      * Validación de tercer dígito
      *
-     * Permite validad el tercer dígito del documento. Dependiendo
+     * Permite validar el tercer dígito del documento. Dependiendo
      * del campo tipo (tipo de identificación) se realizan las validaciones.
      * Los posibles valores del campo tipo son: cedula, ruc_natural, ruc_privada
      *
@@ -253,22 +253,22 @@ class ValidarIdentificacion
             case 'cedula':
             case 'ruc_natural':
                 if ($numero < 0 OR $numero > 5) {
-                    throw new Exception('Tercer dígito debe ser mayor o igual a 0 y menor a 6 para cédulas y RUC de persona natural');
+                    throw new Exception('Para personas naturales el tercer dígito ingresado debe ser mayor a 0 y menor a 6');
                 }
                 break;
             case 'ruc_privada':
                 if ($numero != 9) {
-                    throw new Exception('Tercer dígito debe ser igual a 9 para sociedades privadas');
+                    throw new Exception('Para sociedades privadas el tercer dígito debe ser igual a 9');
                 }
                 break;
 
             case 'ruc_publica':
                 if ($numero != 6) {
-                    throw new Exception('Tercer dígito debe ser igual a 6 para sociedades públicas');
+                    throw new Exception('Para sociedades públicas el tercer dígito debe ser igual a 6');
                 }
                 break;
             default:
-                throw new Exception('Tipo de Identificación no existe.');
+                throw new Exception('El tipo de Identificación no existe');
                 break;
         }
 
@@ -287,7 +287,7 @@ class ValidarIdentificacion
     protected function validarCodigoEstablecimiento($numero)
     {
         if ($numero < 1) {
-            throw new Exception('Código de establecimiento no puede ser 0');
+            throw new Exception('El código de establecimiento no puede ser 0');
         }
 
         return true;
@@ -361,7 +361,7 @@ class ValidarIdentificacion
         }
 
         if ($resultado != $digitoVerificador) {
-            throw new Exception('Dígitos iniciales no validan contra Dígito Idenficador');
+            throw new Exception('Los dígitos iniciales no corresponden con el dígito idenficador');
         }
 
         return true;
@@ -428,7 +428,7 @@ class ValidarIdentificacion
                 $arrayCoeficientes = array(3, 2, 7, 6, 5, 4, 3, 2);
                 break;
             default:
-                throw new Exception('Tipo de Identificación no existe.');
+                throw new Exception('El tipo de Identificación no existe');
                 break;
         }
 
@@ -450,7 +450,7 @@ class ValidarIdentificacion
         }
 
         if ($resultado != $digitoVerificador) {
-            throw new Exception('Dígitos iniciales no validan contra Dígito Idenficador');
+            throw new Exception('Los dígitos iniciales no corresponden con el dígito idenficador');
         }
 
         return true;
