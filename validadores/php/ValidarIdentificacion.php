@@ -35,8 +35,8 @@
  */
 
 /**
- * ValidarIdentificacion contiene metodos para validar cédula, RUC de persona natural, RUC de sociedad privada y
- * RUC de socieda pública en el Ecuador.
+ * ValidarIdentificacion contiene métodos para validar cédula, RUC de persona natural, RUC de sociedad privada y
+ * RUC de sociedad pública en el Ecuador.
  *
  * Los métodos públicos para realizar validaciones son:
  *
@@ -60,16 +60,16 @@ class ValidarIdentificacion
     /**
      * Validar cédula
      *
-     * @param  string  $numero  Número de cédula
+     * @param  string  $numero  Número de cédula.
      *
      * @return Boolean
      */
     public function validarCedula($numero = '')
     {
-        // fuerzo parametro de entrada a string
+        // Se fuerza que el parametro de entrada sea string.
         $numero = (string)$numero;
 
-        // borro por si acaso errores de llamadas anteriores.
+        // Se borran, por si acaso, errores de llamadas anteriores.
         $this->setError('');
 
         // validaciones
@@ -89,16 +89,16 @@ class ValidarIdentificacion
     /**
      * Validar RUC persona natural
      *
-     * @param  string  $numero  Número de RUC persona natural
+     * @param  string  $numero  Número de RUC persona natural.
      *
      * @return Boolean
      */
     public function validarRucPersonaNatural($numero = '')
     {
-        // fuerzo parametro de entrada a string
+        // Se fuerza que el parametro de entrada sea string.
         $numero = (string)$numero;
 
-        // borro por si acaso errores de llamadas anteriores.
+        // Se borran, por si acaso, errores de llamadas anteriores.
         $this->setError('');
 
         // validaciones
@@ -126,10 +126,10 @@ class ValidarIdentificacion
      */
     public function validarRucSociedadPrivada($numero = '')
     {
-        // fuerzo parametro de entrada a string
+        // Se fuerza que el parametro de entrada sea string.
         $numero = (string)$numero;
 
-        // borro por si acaso errores de llamadas anteriores.
+        // Se borran, por si acaso, errores de llamadas anteriores.
         $this->setError('');
 
         // validaciones
@@ -150,16 +150,16 @@ class ValidarIdentificacion
     /**
      * Validar RUC sociedad publica
      *
-     * @param  string  $numero  Número de RUC sociedad publica
+     * @param  string  $numero  Número de RUC sociedad publica.
      *
      * @return Boolean
      */
     public function validarRucSociedadPublica($numero = '')
     {
-        // fuerzo parametro de entrada a string
+        // Se fuerza que el parametro de entrada sea string.
         $numero = (string)$numero;
 
-        // borro por si acaso errores de llamadas anteriores.
+        // Se borran, por si acaso, errores de llamadas anteriores.
         $this->setError('');
 
         // validaciones
@@ -185,13 +185,13 @@ class ValidarIdentificacion
      *
      * @return Boolean
      *
-     * @throws exception Cuando valor esta vacio, cuando no es dígito y
+     * @throws exception Cuando valor está vacío, cuando no es dígito y
      * cuando no tiene cantidad requerida de caracteres
      */
     protected function validarInicial($numero, $caracteres)
     {
         if (empty($numero)) {
-            throw new Exception('Valor no puede estar vacio');
+            throw new Exception('Valor no puede estar vacío');
         }
 
         if (!ctype_digit($numero)) {
@@ -212,40 +212,40 @@ class ValidarIdentificacion
      *
      * @return boolean
      *
-     * @throws exception Cuando el código de provincia no esta entre 00 y 24
+     * @throws exception Cuando el código de provincia no está entre 00 y 24
      */
     protected function validarCodigoProvincia($numero)
     {
         if ($numero < 0 OR $numero > 24) {
-            throw new Exception('Codigo de Provincia (dos primeros dígitos) no deben ser mayor a 24 ni menores a 0');
+            throw new Exception('Código de Provincia (dos primeros dígitos) no debe ser mayor a 24 ni menor a 0');
         }
 
         return true;
     }
 
-    /**
+ /**
      * Validación de tercer dígito
      *
-     * Permite validad el tercer dígito del documento. Dependiendo
+     * Permite validar el tercer dígito del documento. Dependiendo
      * del campo tipo (tipo de identificación) se realizan las validaciones.
-     * Los posibles valores del campo tipo son: cedula, ruc_natural, ruc_privada
+     * Los posibles valores del campo tipo son: cédula, ruc_natural, ruc_privada.
      *
-     * Para Cédulas y RUC de personas naturales el terder dígito debe
+     * Para Cédulas y RUC de personas naturales el tercer dígito debe
      * estar entre 0 y 5 (0,1,2,3,4,5)
      *
-     * Para RUC de sociedades privadas el terder dígito debe ser
+     * Para RUC de sociedades privadas el tercer dígito debe ser
      * igual a 9.
      *
-     * Para RUC de sociedades públicas el terder dígito debe ser 
+     * Para RUC de sociedades públicas el tercer dígito debe ser 
      * igual a 6.
      *
      * @param  string $numero  tercer dígito de CI/RUC
-     * @param  string $tipo  tipo de identificador
+     * @param  string $tipo  tipo de identificación
      *
      * @return boolean
      *
-     * @throws exception Cuando el tercer digito no es válido. El mensaje
-     * de error depende del tipo de Idenficiación.
+     * @throws exception Cuando el tercer dígito no es válido. El mensaje
+     * de error depende del tipo de Identificación.
      */
     protected function validarTercerDigito($numero, $tipo)
     {
@@ -282,7 +282,7 @@ class ValidarIdentificacion
      *
      * @return boolean
      *
-     * @throws exception Cuando el establecimiento es menor a 1
+     * @throws exception Cuando el código de establecimiento es menor a 1
      */
     protected function validarCodigoEstablecimiento($numero)
     {
@@ -293,33 +293,34 @@ class ValidarIdentificacion
         return true;
     }
 
-    /**
+   /**
      * Algoritmo Modulo10 para validar si CI y RUC de persona natural son válidos.
      *
      * Los coeficientes usados para verificar el décimo dígito de la cédula,
      * mediante el algoritmo “Módulo 10” son:  2. 1. 2. 1. 2. 1. 2. 1. 2
      *
+     * Pasos del algoritmo:
+     * 
      * Paso 1: Multiplicar cada dígito de los digitosIniciales por su respectivo
-     * coeficiente.
+     * coeficiente. Tal como se observa a continuación:
      *
-     *  Ejemplo
-     *  digitosIniciales posicion 1  x 2
-     *  digitosIniciales posicion 2  x 1
-     *  digitosIniciales posicion 3  x 2
-     *  digitosIniciales posicion 4  x 1
-     *  digitosIniciales posicion 5  x 2
-     *  digitosIniciales posicion 6  x 1
-     *  digitosIniciales posicion 7  x 2
-     *  digitosIniciales posicion 8  x 1
-     *  digitosIniciales posicion 9  x 2
+     *  digitosIniciales posición 1  x 2
+     *  digitosIniciales posición 2  x 1
+     *  digitosIniciales posición 3  x 2
+     *  digitosIniciales posición 4  x 1
+     *  digitosIniciales posición 5  x 2
+     *  digitosIniciales posición 6  x 1
+     *  digitosIniciales posición 7  x 2
+     *  digitosIniciales posición 8  x 1
+     *  digitosIniciales posición 9  x 2
      *
-     * Paso 2: Sí alguno de los resultados de cada multiplicación es mayor a o igual a 10,
-     * se suma entre ambos dígitos de dicho resultado. Ex. 12->1+2->3
+     * Paso 2: Si alguno de los resultados de cada multiplicación es mayor o igual a 10,
+     * los dígitos de dicho resultado se suman. Ejemplo: 12->1+2->3
      *
-     * Paso 3: Se suman los resultados y se obtiene total
+     * Paso 3: Se suman los resultados y se obtiene el total.
      *
-     * Paso 4: Divido total para 10, se guarda residuo. Se resta 10 menos el residuo.
-     * El valor obtenido debe concordar con el digitoVerificador
+     * Paso 4: Se divide el total para 10 y se guarda el residuo ($residuo = $total%10). Luego se resta
+     * de 10 el residuo (10 - $residuo). El valor obtenido debe concordar con el digitoVerificador.
      *
      * Nota: Cuando el residuo es cero(0) el dígito verificador debe ser 0.
      *
@@ -328,8 +329,8 @@ class ValidarIdentificacion
      *
      * @return boolean
      *
-     * @throws exception Cuando los digitosIniciales no concuerdan contra
-     * el código verificador.
+     * @throws exception Cuando los digitosIniciales no concuerdan con
+     * el dígito verificador.
      */
     protected function algoritmoModulo10($digitosIniciales, $digitoVerificador)
     {
@@ -361,7 +362,7 @@ class ValidarIdentificacion
         }
 
         if ($resultado != $digitoVerificador) {
-            throw new Exception('Dígitos iniciales no validan contra Dígito Idenficador');
+            throw new Exception('Dígitos iniciales no concuerdan con el Dígito Verificador');
         }
 
         return true;
@@ -370,42 +371,51 @@ class ValidarIdentificacion
     /**
      * Algoritmo Modulo11 para validar RUC de sociedades privadas y públicas
      *
-     * El código verificador es el decimo digito para RUC de empresas privadas
+     * El código verificador es el decimo dígito para RUC de empresas privadas
      * y el noveno dígito para RUC de empresas públicas
-     *
+     * 
      * Paso 1: Multiplicar cada dígito de los digitosIniciales por su respectivo
      * coeficiente.
+     * 
+     * RUC SOCIEDADES PRIVADAS:
+     * 
+     * Los coeficientes usados para verificar el décimo dígito del RUC de sociedades privadas,
+     * mediante el algoritmo “Módulo 11”, son: 4. 3. 2. 7. 6. 5. 4. 3. 2.
      *
-     * Para RUC privadas el coeficiente esta definido y se multiplica con las siguientes
-     * posiciones del RUC:
+     * Para RUC privadas, la multiplicación entre posiciones y coeficientes se realiza tal
+     * como se observa a continuación:
      *
-     *  Ejemplo
-     *  digitosIniciales posicion 1  x 4
-     *  digitosIniciales posicion 2  x 3
-     *  digitosIniciales posicion 3  x 2
-     *  digitosIniciales posicion 4  x 7
-     *  digitosIniciales posicion 5  x 6
-     *  digitosIniciales posicion 6  x 5
-     *  digitosIniciales posicion 7  x 4
-     *  digitosIniciales posicion 8  x 3
-     *  digitosIniciales posicion 9  x 2
+     *  digitosIniciales posición 1  x 4
+     *  digitosIniciales posición 2  x 3
+     *  digitosIniciales posición 3  x 2
+     *  digitosIniciales posición 4  x 7
+     *  digitosIniciales posición 5  x 6
+     *  digitosIniciales posición 6  x 5
+     *  digitosIniciales posición 7  x 4
+     *  digitosIniciales posición 8  x 3
+     *  digitosIniciales posición 9  x 2
+     * 
+     * RUC SOCIEDADES PÚBLICAS:
      *
-     * Para RUC privadas el coeficiente esta definido y se multiplica con las siguientes
-     * posiciones del RUC:
+     * Los coeficientes usados para verificar el décimo dígito del RUC de sociedades públicas,
+     * mediante el algoritmo “Módulo 11”, son: 3. 2. 7. 6. 5. 4. 3. 2.
      *
-     *  digitosIniciales posicion 1  x 3
-     *  digitosIniciales posicion 2  x 2
-     *  digitosIniciales posicion 3  x 7
-     *  digitosIniciales posicion 4  x 6
-     *  digitosIniciales posicion 5  x 5
-     *  digitosIniciales posicion 6  x 4
-     *  digitosIniciales posicion 7  x 3
-     *  digitosIniciales posicion 8  x 2
+     * Para RUC públicas, la multiplicación entre posiciones y coeficientes se realiza tal
+     * como se observa a continuación:
      *
-     * Paso 2: Se suman los resultados y se obtiene total
+     *  digitosIniciales posición 1  x 3
+     *  digitosIniciales posición 2  x 2
+     *  digitosIniciales posición 3  x 7
+     *  digitosIniciales posición 4  x 6
+     *  digitosIniciales posición 5  x 5
+     *  digitosIniciales posición 6  x 4
+     *  digitosIniciales posición 7  x 3
+     *  digitosIniciales posición 8  x 2
      *
-     * Paso 3: Divido total para 11, se guarda residuo. Se resta 11 menos el residuo.
-     * El valor obtenido debe concordar con el digitoVerificador
+     * Paso 2: Se suman los resultados de las multiplicaciones y se obtiene el total.
+     *
+     * Paso 3: Se divide el total para 11 y se guarda el residuo. Luego se resta
+     *  de 11 el residuo (11 - residuo). El valor obtenido debe concordar con el digitoVerificador.
      *
      * Nota: Cuando el residuo es cero(0) el dígito verificador debe ser 0.
      *
@@ -415,8 +425,8 @@ class ValidarIdentificacion
      *
      * @return boolean
      *
-     * @throws exception Cuando los digitosIniciales no concuerdan contra
-     * el código verificador.
+     * @throws exception Cuando los digitosIniciales no concuerdan con
+     * el dígito verificador.
      */
     protected function algoritmoModulo11($digitosIniciales, $digitoVerificador, $tipo)
     {
@@ -450,7 +460,7 @@ class ValidarIdentificacion
         }
 
         if ($resultado != $digitoVerificador) {
-            throw new Exception('Dígitos iniciales no validan contra Dígito Idenficador');
+            throw new Exception('Dígitos iniciales no concuerdan con el Dígito Verificador');
         }
 
         return true;
